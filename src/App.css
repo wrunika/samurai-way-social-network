@@ -10,14 +10,6 @@
   /* grid-gap: 10px; */
 }
 
-.nav {
-  grid-area: n;
-}
-
-.nav li {
-  list-style-type: none;
-}
-
 .content {
   grid-area: c;
 }
