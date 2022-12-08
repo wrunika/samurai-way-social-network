@@ -11,9 +11,9 @@ const MyPosts = () => {
                 <button>Send</button>
             </div>
             <div className={styles.posts}>
-                <Post message={"It is my first post."}/>
-                <Post message={"Hi, how have you been?"}/>
-                <Post message={"The weather is nice today!"}/>
+                <Post message={"It is my first post."} likesCount={5}/>
+                <Post message={"Hi, how have you been?"} likesCount={3}/>
+                <Post message={"The weather is nice today!"} likesCount={1}/>
             </div>
 
         </div>
