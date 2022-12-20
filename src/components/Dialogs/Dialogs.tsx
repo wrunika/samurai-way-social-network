@@ -1,48 +1,51 @@
 import React from 'react';
 import styles from './Dialogs.module.css'
+import {NavLink} from "react-router-dom";
+
+type DialogItemPropsType = {
+    name: string
+    id: string
+}
+type MessagePropsType = {
+    message: string
+}
+
+const DialogItem = (props: DialogItemPropsType) => {
+    let path = "/dialogs/" + props.id;
+
+  return(
+      <div className={styles.dialog + ' ' + styles.active}>
+          <NavLink to={path}>{props.name}</NavLink>
+      </div>
+  )
+}
+
+const Message = (props: MessagePropsType) => {
+  return(
+      <div className={styles.message}>
+          {props.message}
+      </div>
+  )
+}
 
 const Dialogs = () => {
     return(
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>
-                <div className={styles.dialog}>
-                    Maks
-                </div>
-                <div className={styles.dialog}>
-                    Nick
-                </div>
-                <div className={styles.dialog + ' ' + styles.active}>
-                    Helen
-                </div>
-                <div className={styles.dialog}>
-                    Kris
-                </div>
-                <div className={styles.dialog}>
-                    Mike
-                </div>
-                <div className={styles.dialog}>
-                    Greg
-                </div>
+                <DialogItem name="Maks" id="1"/>
+                <DialogItem name="Nick" id="2"/>
+                <DialogItem name="Helen" id="3"/>
+                <DialogItem name="Kris" id="4"/>
+                <DialogItem name="Mike" id="5"/>
+                <DialogItem name="Greg" id="6"/>
             </div>
             <div className={styles.messages}>
-                <div className={styles.message}>
-                    Hi.
-                </div>
-                <div className={styles.message}>
-                    How have you been?
-                </div>
-                <div className={styles.message}>
-                    It was a perfect day!
-                </div>
-                <div className={styles.message}>
-                    Hm...
-                </div>
-                <div className={styles.message}>
-                    Nope.
-                </div>
-                <div className={styles.message}>
-                    Excuse me.
-                </div>
+                <Message message="Hi." />
+                <Message message="How have you been?" />
+                <Message message="It was a perfect day!" />
+                <Message message="Hm..." />
+                <Message message="Nope!" />
+                <Message message="So sorry." />
             </div>
         </div>
     )

@@ -11,6 +11,10 @@
     color: brown;
 }
 
+.dialog a {
+    text-decoration: none;
+}
+
 .messages {
     padding: 10px;
 }
