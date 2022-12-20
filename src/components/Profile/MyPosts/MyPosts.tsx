@@ -1,14 +1,18 @@
 import React from 'react';
 import Post from "./Post/Post";
-import styles from "../Profile.module.css";
+import styles from "./MyPosts.module.css";
 
 const MyPosts = () => {
     return (
-        <div>
-            My posts
+        <div className={styles.postsBlock}>
+            <h3>My posts</h3>
             <div>
-                <textarea></textarea>
-                <button>Send</button>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Send</button>
+                </div>
             </div>
             <div className={styles.posts}>
                 <Post message={"It is my first post."} likesCount={5}/>
