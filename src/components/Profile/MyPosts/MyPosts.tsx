@@ -14,6 +14,7 @@ const MyPosts = () => {
         {id: "2", message: "Hi, how have you been?", likesCount: 3},
         {id: "3", message: "The weather is nice today!", likesCount: 1},
     ]
+    let postsElements = postsData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
     return (
         <div className={styles.postsBlock}>
             <h3>My posts</h3>
@@ -26,9 +27,7 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={styles.posts}>
-                <Post message={postsData[0].message} likesCount={postsData[0].likesCount}/>
-                <Post message={postsData[1].message} likesCount={postsData[1].likesCount}/>
-                <Post message={postsData[2].message} likesCount={postsData[2].likesCount}/>
+                {postsElements}
             </div>
 
         </div>
