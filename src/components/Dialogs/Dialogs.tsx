@@ -46,6 +46,9 @@ const Dialogs = () => {
         {id: "5", name: "Mike"},
         {id: "6", name: "Greg"},
     ]
+
+    let dialogsElement = dialogsData.map(d => <DialogItem name={d.name} id={d.id} />)
+
     let messagesData: MessageDataType[] = [
         {id: 1, message: "Hi."},
         {id: 1, message: "How have you been?"},
@@ -54,23 +57,15 @@ const Dialogs = () => {
         {id: 1, message: "Nope!"},
         {id: 1, message: "So sorry."},
     ]
+    let messagesElement = messagesData.map(m => <Message message={m.message} />)
+
     return(
         <div className={styles.dialogs}>
             <div className={styles.dialogsItems}>
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
-                <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
-                <DialogItem name={dialogsData[3].name} id={dialogsData[3].id} />
-                <DialogItem name={dialogsData[4].name} id={dialogsData[4].id} />
-                <DialogItem name={dialogsData[5].name} id={dialogsData[5].id} />
+                {dialogsElement}
             </div>
             <div className={styles.messages}>
-                <Message message={messagesData[0].message} />
-                <Message message={messagesData[1].message} />
-                <Message message={messagesData[2].message} />
-                <Message message={messagesData[3].message} />
-                <Message message={messagesData[4].message} />
-                <Message message={messagesData[5].message} />
+                {messagesElement}
             </div>
         </div>
     )
