@@ -2,28 +2,17 @@ import React from 'react';
 import styles from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
-import {PostDataType} from "../../index";
+import {ProfilePageType} from "../../redux/state";
 
-/*type PostDataType = {
-    id: string
-    message: string
-    likesCount: number
-}*/
+
 type ProfilePropsType = {
-    postsData: PostDataType[]
+    profilePage: ProfilePageType
 }
 const Profile = (props: ProfilePropsType) => {
-
-    /*let postsData: PostDataType[] = [
-        {id: "1", message: "It is my first post.", likesCount: 5},
-        {id: "2", message: "Hi, how have you been?", likesCount: 3},
-        {id: "3", message: "The weather is nice today!", likesCount: 1},
-    ]*/
-
     return (
         <div>
             <ProfileInfo />
-            <MyPosts postsData={props.postsData} />
+            <MyPosts postsData={props.profilePage.postsData} />
         </div>
     );
 }
