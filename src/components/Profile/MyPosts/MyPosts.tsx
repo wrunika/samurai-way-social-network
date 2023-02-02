@@ -11,15 +11,19 @@ type MyPostsPropsType = {
 const MyPosts = (props: MyPostsPropsType) => {
 
     let postsElements = props.postsData.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+    const newPostElement = React.createRef<HTMLTextAreaElement>();
+    const addPost = () => {
+      alert(newPostElement.current?.value)
+    }
     return (
         <div className={styles.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button>Send</button>
+                    <button onClick={addPost}>Send</button>
                 </div>
             </div>
             <div className={styles.posts}>
