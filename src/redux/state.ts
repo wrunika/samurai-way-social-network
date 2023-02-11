@@ -1,3 +1,5 @@
+
+
 export type PostDataType = {
     id: string
     message: string
@@ -13,6 +15,7 @@ export type MessageDataType = {
 }
 export type ProfilePageType = {
     postsData: PostDataType[]
+    newPostText: string
 }
 export type DialogsPageType = {
     dialogsData: DialogDataType[]
@@ -29,7 +32,8 @@ export const state: StateType = {
             {id: "1", message: "It is my first post.", likesCount: 5},
             {id: "2", message: "Hi, how have you been?", likesCount: 3},
             {id: "3", message: "The weather is nice today!", likesCount: 1},
-        ]
+        ],
+        newPostText: 'it-incubator'
     },
     dialogsPage: {
         dialogsData: [
@@ -51,6 +55,26 @@ export const state: StateType = {
     }
 }
 
+let rerenderEntireTree = () => {
+    console.log('state was changed')
+}
+
+export const addPost = () => {
+    //debugger
+    const newPost: PostDataType = {id: "5", message: state.profilePage.newPostText, likesCount: 0};
+    state.profilePage.postsData.push(newPost)
+    state.profilePage.newPostText = ''
+    rerenderEntireTree()
+}
+
+export const updateNewPostText = (newText: string) => {
+    state.profilePage.newPostText = newText
+    rerenderEntireTree()
+}
+
+export const subscribe = (observer: ()=>void) => {
+    rerenderEntireTree = observer;
+}
 
 /*
 let postsData: PostDataType[] = [
