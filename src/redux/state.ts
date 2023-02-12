@@ -1,5 +1,3 @@
-
-
 export type PostDataType = {
     id: string
     message: string
@@ -26,7 +24,72 @@ export type StateType = {
     dialogsPage: DialogsPageType
 }
 
-export const state: StateType = {
+export type StoreType = {
+    _state: StateType
+    addPost: ()=>void
+    updateNewPostText: (newText: string)=>void
+    _callSubscriber: ()=>void
+    subscribe: (observer: ()=>void)=>void
+    getState: ()=> StateType
+}
+
+export const store: StoreType = {
+    _state: {
+        profilePage: {
+            postsData: [
+                {id: "1", message: "It is my first post.", likesCount: 5},
+                {id: "2", message: "Hi, how have you been?", likesCount: 3},
+                {id: "3", message: "The weather is nice today!", likesCount: 1},
+            ],
+            newPostText: 'it-incubator'
+        },
+        dialogsPage: {
+            dialogsData: [
+                {id: "1", name: "Maks"},
+                {id: "2", name: "Nick"},
+                {id: "3", name: "Helen"},
+                {id: "4", name: "Kris"},
+                {id: "5", name: "Mike"},
+                {id: "6", name: "Greg"},
+            ],
+            messagesData: [
+                {id: 1, message: "Hi."},
+                {id: 1, message: "How have you been?"},
+                {id: 1, message: "It was a perfect day!"},
+                {id: 1, message: "Hm..."},
+                {id: 1, message: "Nope!"},
+                {id: 1, message: "So sorry."},
+            ]
+        }
+    },
+    addPost() {
+        const newPost: PostDataType = {id: "5", message: this._state.profilePage.newPostText, likesCount: 0};
+        this._state.profilePage.postsData.push(newPost)
+        this._state.profilePage.newPostText = ''
+        this._callSubscriber()
+    },
+    updateNewPostText(newText: string) {
+        this._state.profilePage.newPostText = newText
+        this._callSubscriber()
+    },
+    _callSubscriber() {
+        console.log('state was changed')
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+    getState() {
+        return this._state
+    }
+}
+
+
+
+
+
+
+
+/*export const state: StateType = {
     profilePage: {
         postsData: [
             {id: "1", message: "It is my first post.", likesCount: 5},
@@ -60,7 +123,6 @@ let rerenderEntireTree = () => {
 }
 
 export const addPost = () => {
-    //debugger
     const newPost: PostDataType = {id: "5", message: state.profilePage.newPostText, likesCount: 0};
     state.profilePage.postsData.push(newPost)
     state.profilePage.newPostText = ''
@@ -74,27 +136,4 @@ export const updateNewPostText = (newText: string) => {
 
 export const subscribe = (observer: ()=>void) => {
     rerenderEntireTree = observer;
-}
-
-/*
-let postsData: PostDataType[] = [
-    {id: "1", message: "It is my first post.", likesCount: 5},
-    {id: "2", message: "Hi, how have you been?", likesCount: 3},
-    {id: "3", message: "The weather is nice today!", likesCount: 1},
-]
-let dialogsData: DialogDataType[] = [
-    {id: "1", name: "Maks"},
-    {id: "2", name: "Nick"},
-    {id: "3", name: "Helen"},
-    {id: "4", name: "Kris"},
-    {id: "5", name: "Mike"},
-    {id: "6", name: "Greg"},
-]
-let messagesData: MessageDataType[] = [
-    {id: 1, message: "Hi."},
-    {id: 1, message: "How have you been?"},
-    {id: 1, message: "It was a perfect day!"},
-    {id: 1, message: "Hm..."},
-    {id: 1, message: "Nope!"},
-    {id: 1, message: "So sorry."},
-]*/
+}*/
