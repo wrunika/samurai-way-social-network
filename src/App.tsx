@@ -23,7 +23,7 @@ function App(props: AppPropsType) {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Route path="/dialogs" render={ ()=> <Dialogs dialogsPage={state.dialogsPage} /> } />
-                    <Route path="/profile" render={ ()=> <Profile profilePage={state.profilePage} addPost={props.store.addPost.bind(props.store)} updateNewPostText={props.store.updateNewPostText.bind(props.store)} /> } />
+                    <Route path="/profile" render={ ()=> <Profile profilePage={state.profilePage} dispatch={props.store.dispatch.bind(props.store)} /> } />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
