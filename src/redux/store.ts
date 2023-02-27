@@ -1,3 +1,6 @@
+import {addPostActionCreator, profileReducer, updateNewPostTextActionCreator} from "./profile-reducer";
+import {dialogsReducer, sendMessageAC, updateNewMessageBodyAC} from "./dialogs-reducer";
+
 export type PostDataType = {
     id: string
     message: string
@@ -43,7 +46,7 @@ export type ActionsTypes =
     | ReturnType<typeof updateNewPostTextActionCreator>
     | ReturnType<typeof updateNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
 
-export const updateNewPostTextActionCreator = (newText: string) => {
+/*export const updateNewPostTextActionCreator = (newText: string) => {
     return {
         type: "UPDATE-NEW-POST-TEXT",
         newText: newText
@@ -54,9 +57,9 @@ export const addPostActionCreator = (newPostText: string) => {
         type: "ADD-POST",
         newPostText: newPostText
     } as const
-}
+}*/
 
-export const updateNewMessageBodyAC = (newMessageBody: string) => {
+/*export const updateNewMessageBodyAC = (newMessageBody: string) => {
     return {
         type: "UPDATE-NEW-MESSAGE-BODY",
         newMessageBody: newMessageBody
@@ -68,7 +71,7 @@ export const sendMessageAC = (newMessage: string) => {
         type: "SEND-MESSAGE",
         newMessage: newMessage
     } as const
-}
+}*/
 export const store: StoreType = {
     _state: {
         profilePage: {
@@ -119,7 +122,13 @@ export const store: StoreType = {
         return this._state
     },
     dispatch(action) {
-        if (action.type === "ADD-POST") {
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+
+        this._callSubscriber()
+
+        /*if (action.type === "ADD-POST") {
             const newPost: PostDataType = {id: "5", message: action.newPostText, likesCount: 0};
             this._state.profilePage.postsData.push(newPost)
             this._state.profilePage.newPostText = ''
@@ -136,7 +145,7 @@ export const store: StoreType = {
             this._state.dialogsPage.newMessageBody = ""
             this._state.dialogsPage.messagesData.push({id: 7, message: messageBody})
             this._callSubscriber()
-        }
+        }*/
     }
 }
 
