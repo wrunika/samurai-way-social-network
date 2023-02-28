@@ -8,10 +8,11 @@ import Music from "./components/Music/Music";
 import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import {StoreType} from "./redux/state";
+import {StoreType} from "./redux/store";
 
 type AppPropsType = {
-    store: StoreType
+    //store: StoreType
+    store: any
 }
 
 function App(props: AppPropsType) {
