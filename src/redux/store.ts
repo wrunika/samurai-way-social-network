@@ -70,7 +70,8 @@ export const sendMessageAC = (newMessage: string) => {
         newMessage: newMessage
     } as const
 }*/
-export const store: StoreType = {
+//export const store: StoreType = {
+const store: StoreType = {
     _state: {
         profilePage: {
             postsData: [
