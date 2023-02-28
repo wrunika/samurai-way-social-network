@@ -1,27 +1,33 @@
 import React, {ChangeEvent} from 'react';
 import Post from "./Post/Post";
 import styles from "./MyPosts.module.css";
-import {
+/*import {
     addPostActionCreator,
     updateNewPostTextActionCreator
 } from "../../../redux/profile-reducer";
-import {ActionsTypes, ProfilePageType} from "../../../redux/store";
+import {ActionsTypes, PostDataType, ProfilePageType} from "../../../redux/store";*/
+import {PostDataType} from "../../../redux/store";
 
 
 type MyPostsPropsType = {
-    profilePage: ProfilePageType
-    dispatch: (action: ActionsTypes)=>void
+    //profilePage: ProfilePageType
+    //dispatch: (action: ActionsTypes)=>void
+    posts: PostDataType[]
+    newPostText: string
+    addPost: ()=>void
+    updateNewPostText: (s: string)=>void
 }
 
 const MyPosts = (props: MyPostsPropsType) => {
 
-    let postsElements = props.profilePage.postsData.map(p => <Post message={p.message} likesCount={p.likesCount}/>)
+    let postsElements = props.posts.map((p, index) => <Post key={index} message={p.message} likesCount={p.likesCount}/>)
     //const newPostElement = React.createRef<HTMLTextAreaElement>();
     const addPost = () => {
+        //debugger
         //const text = newPostElement.current.value;
-        //props.addPost();
+        props.addPost();
         //props.dispatch( {type: "ADD-POST", newPostText: props.profilePage.newPostText} );
-        props.dispatch( addPostActionCreator(props.profilePage.newPostText) );
+        //props.dispatch( addPostActionCreator(props.profilePage.newPostText) );
         //props.updateNewPostText('')
 
         //console.log(newPostElement.current?.value)
@@ -30,10 +36,10 @@ const MyPosts = (props: MyPostsPropsType) => {
     const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         //if (newPostElement.current) {
             //const text = newPostElement.current.value;
-            //props.updateNewPostText(e.currentTarget.value)
+            props.updateNewPostText(e.currentTarget.value)
             //props.dispatch( {type: "UPDATE-NEW-POST-TEXT", newText: e.currentTarget.value} )
-            props.dispatch( updateNewPostTextActionCreator(e.currentTarget.value) )
         //}
+        //props.dispatch( updateNewPostTextActionCreator(e.currentTarget.value) )
     }
 
     return (
@@ -41,7 +47,7 @@ const MyPosts = (props: MyPostsPropsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} value={props.profilePage.newPostText}/>
+                    <textarea onChange={onPostChange} value={props.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Send</button>
