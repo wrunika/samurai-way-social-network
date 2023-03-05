@@ -6,16 +6,18 @@ import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-type ProfilePropsType = {
+/*type ProfilePropsType = {
     //profilePage: ProfilePageType
     //dispatch: (action: ActionsTypes)=>void
     store: any
-}
-const Profile = (props: ProfilePropsType) => {
+}*/
+//const Profile = (props: ProfilePropsType) => {
+const Profile = () => {
     return (
         <div>
             <ProfileInfo />
-            <MyPostsContainer store={props.store} />
+            <MyPostsContainer />
+            {/*<MyPostsContainer store={props.store} />*/}
             {/*<MyPostsContainer profilePage={props.profilePage} dispatch={props.dispatch} />*/}
             {/*<MyPosts profilePage={props.profilePage} dispatch={props.dispatch} />*/}
         </div>

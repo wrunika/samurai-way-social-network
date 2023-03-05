@@ -9,25 +9,30 @@ import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import {RootStoreType} from "./redux/redux-store";
 //import {StoreType} from "./redux/store";
 
-type AppPropsType = {
+/*type AppPropsType = {
     //store: StoreType
-    store: any
-}
+    //store: any
+    store: RootStoreType
+}*/
 
-function App(props: AppPropsType) {
-    const state = props.store.getState();
+//function App(props: AppPropsType) {
+function App() {
+    //const state = props.store.getState();
     return (
-        <BrowserRouter>
+        /*<BrowserRouter>*/
             <div className="app-wrapper">
                 <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
                     {/*<Route path="/dialogs" render={ ()=> <Dialogs dialogsPage={state.dialogsPage} dispatch={props.store.dispatch.bind(props.store)} /> } />
                     <Route path="/profile" render={ ()=> <Profile profilePage={state.profilePage} dispatch={props.store.dispatch.bind(props.store)} /> } />*/}
-                    <Route path="/dialogs" render={ ()=> <DialogsContainer store={props.store} /> } />
-                    <Route path="/profile" render={ ()=> <Profile store={props.store} /> } />
+                    {/*<Route path="/dialogs" render={ ()=> <DialogsContainer store={props.store} /> } />
+                    <Route path="/profile" render={ ()=> <Profile store={props.store} /> } />*/}
+                    <Route path="/dialogs" render={ ()=> <DialogsContainer /> } />
+                    <Route path="/profile" render={ ()=> <Profile /> } />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
@@ -35,7 +40,7 @@ function App(props: AppPropsType) {
                     {/*<Dialogs />*/}
                 </div>
             </div>
-        </BrowserRouter>
+        /*</BrowserRouter>*/
     );
 }
 
