@@ -8,7 +8,8 @@ import App from './App';
 import './index.css';
 import {store} from "./redux/redux-store";
 import {BrowserRouter} from "react-router-dom";
-import {Provider, StoreContext} from "./StoreContext";
+import {Provider} from "react-redux";
+//import {Provider, StoreContext} from "./StoreContext";
 
 //import {updateNewPostText} from "./redux/state";
 

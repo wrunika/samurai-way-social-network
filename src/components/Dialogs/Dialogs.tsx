@@ -2,11 +2,13 @@ import React, {ChangeEvent} from 'react';
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {ActionsTypes, DialogDataType, DialogsPageType, MessageDataType} from "../../redux/store";
+import {DialogDataType, MessageDataType} from "../../redux/dialogs-reducer";
+import {DialogsPropsType} from "./DialogsContainer";
+//import {ActionsTypes, DialogDataType, DialogsPageType, MessageDataType} from "../../redux/store";
 //import {sendMessageAC, updateNewMessageBodyAC} from "../../redux/dialogs-reducer";
 
 
-type DialogsPropsType = {
+/*type DialogsPropsType = {
     //dialogsPage: DialogsPageType
     dialogsData: DialogDataType[]
     messagesData: MessageDataType[]
@@ -14,11 +16,11 @@ type DialogsPropsType = {
     onSendMessageClick: ()=>void
     onNewMessageChange: (s: string)=>void
     //dispatch: (action: ActionsTypes)=>void
-}
+}*/
 const Dialogs = (props: DialogsPropsType) => {
 
-    const dialogsElement = props.dialogsData.map((d, index) => <DialogItem key={index} name={d.name} id={d.id} />);
-    const messagesElement = props.messagesData.map((m, index) => <Message key={index} message={m.message} />);
+    const dialogsElement = props.dialogsPage.dialogsData.map((d, index) => <DialogItem key={index} name={d.name} id={d.id} />);
+    const messagesElement = props.dialogsPage.messagesData.map((m, index) => <Message key={index} message={m.message} />);
 
     //const newMessageRef = React.createRef<HTMLTextAreaElement>();
     const onSendMessageClick = () => {
@@ -27,8 +29,11 @@ const Dialogs = (props: DialogsPropsType) => {
         //props.dispatch(sendMessageAC(props.dialogsPage.newMessageBody))
     }
     const onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        debugger
+        console.log(e.currentTarget.value)
         const body = e.currentTarget.value;
         props.onNewMessageChange(body)
+        console.log(props.dialogsPage.newMessageBody)
         //props.dispatch(updateNewMessageBodyAC(body))
     }
 
@@ -41,7 +46,7 @@ const Dialogs = (props: DialogsPropsType) => {
                 <div>{messagesElement}</div>
             </div>
             <div className={styles.messages}>
-                <div><textarea value={props.newMessageBody} onChange={onNewMessageChange} placeholder={'Enter your message'} ></textarea></div>
+                <div><textarea value={props.dialogsPage.newMessageBody} onChange={onNewMessageChange} placeholder={'Enter your message'} ></textarea></div>
                 <div>
                     <button onClick={onSendMessageClick}>Send</button>
                 </div>

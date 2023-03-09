@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Profile.module.css'
+//import styles from './Profile.module.css'
 //import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 //import {ActionsTypes, ProfilePageType} from "../../redux/store";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import {RRMyPostsContainer} from "./MyPosts/MyPostsContainer";
 
 
 /*type ProfilePropsType = {
@@ -16,7 +16,7 @@ const Profile = () => {
     return (
         <div>
             <ProfileInfo />
-            <MyPostsContainer />
+            <RRMyPostsContainer />
             {/*<MyPostsContainer store={props.store} />*/}
             {/*<MyPostsContainer profilePage={props.profilePage} dispatch={props.dispatch} />*/}
             {/*<MyPosts profilePage={props.profilePage} dispatch={props.dispatch} />*/}

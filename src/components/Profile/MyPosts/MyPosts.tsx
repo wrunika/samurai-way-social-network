@@ -1,26 +1,27 @@
 import React, {ChangeEvent} from 'react';
 import Post from "./Post/Post";
 import styles from "./MyPosts.module.css";
+import {MyPostsPropsType} from "./MyPostsContainer";
 /*import {
     addPostActionCreator,
     updateNewPostTextActionCreator
 } from "../../../redux/profile-reducer";
 import {ActionsTypes, PostDataType, ProfilePageType} from "../../../redux/store";*/
-import {PostDataType} from "../../../redux/store";
 
 
-type MyPostsPropsType = {
+
+/*type MyPostsPropsType = {
     //profilePage: ProfilePageType
     //dispatch: (action: ActionsTypes)=>void
     posts: PostDataType[]
     newPostText: string
     addPost: ()=>void
     updateNewPostText: (s: string)=>void
-}
+}*/
 
 const MyPosts = (props: MyPostsPropsType) => {
 
-    let postsElements = props.posts.map((p, index) => <Post key={index} message={p.message} likesCount={p.likesCount}/>)
+    let postsElements = props.profilePage.postsData.map((p, index) => <Post key={index} message={p.message} likesCount={p.likesCount}/>)
     //const newPostElement = React.createRef<HTMLTextAreaElement>();
     const addPost = () => {
         //debugger
@@ -47,7 +48,7 @@ const MyPosts = (props: MyPostsPropsType) => {
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} value={props.newPostText}/>
+                    <textarea onChange={onPostChange} value={props.profilePage.newPostText}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Send</button>
