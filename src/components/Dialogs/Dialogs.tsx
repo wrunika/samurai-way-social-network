@@ -29,11 +29,10 @@ const Dialogs = (props: DialogsPropsType) => {
         //props.dispatch(sendMessageAC(props.dialogsPage.newMessageBody))
     }
     const onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        debugger
-        console.log(e.currentTarget.value)
+        //console.log(e.currentTarget.value)
         const body = e.currentTarget.value;
         props.onNewMessageChange(body)
-        console.log(props.dialogsPage.newMessageBody)
+        //console.log(props.dialogsPage.newMessageBody)
         //props.dispatch(updateNewMessageBodyAC(body))
     }
 

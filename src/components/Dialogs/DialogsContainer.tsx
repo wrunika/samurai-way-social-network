@@ -33,7 +33,6 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     return {
         onNewMessageChange: (body: string)=>{
-            debugger
             dispatch(updateNewMessageBodyAC(body))
         },
         onSendMessageClick: ()=>{

@@ -18,4 +18,4 @@ export const rootReducer = combineReducers({
 export type AppStateType = ReturnType<typeof rootReducer>
 
 export const store: RootStoreType = createStore(rootReducer);
-console.log(store)
+console.log(store.getState())

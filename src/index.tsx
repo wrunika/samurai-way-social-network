@@ -13,16 +13,38 @@ import {Provider} from "react-redux";
 
 //import {updateNewPostText} from "./redux/state";
 
-export const rerenderEntireTree = () => {
 
+
+ReactDOM.render(
+    <BrowserRouter>
+        {/*<StoreContext.Provider value={store}>*/}
+        <Provider store={store}>
+            <App/>
+            {/*<App store={store}/>*/}
+        </Provider>
+        {/*</StoreContext.Provider>*/}
+    </BrowserRouter>,
+    document.getElementById('root')
+);
+
+
+
+
+
+
+
+
+/*
+export const rerenderEntireTree = () => {
+//debugger
     ReactDOM.render(
         <BrowserRouter>
-            {/*<StoreContext.Provider value={store}>*/}
+            {/!*<StoreContext.Provider value={store}>*!/}
             <Provider store={store}>
                 <App/>
-                {/*<App store={store}/>*/}
+                {/!*<App store={store}/>*!/}
             </Provider>
-            {/*</StoreContext.Provider>*/}
+            {/!*</StoreContext.Provider>*!/}
         </BrowserRouter>,
         document.getElementById('root')
     );
@@ -30,4 +52,4 @@ export const rerenderEntireTree = () => {
 
 rerenderEntireTree()
 
-store.subscribe(rerenderEntireTree)
+store.subscribe(rerenderEntireTree)*/
