@@ -5,10 +5,11 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 //import Dialogs from "./components/Dialogs/Dialogs";
 import Music from "./components/Music/Music";
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import {RRDialogsContainer} from "./components/Dialogs/DialogsContainer";
+import {UsersContainer} from "./components/Users/UsersContainer";
 //import DialogsContainer from "./components/Dialogs/DialogsContainer";
 //import {RootStoreType} from "./redux/redux-store";
 //import {StoreType} from "./redux/store";
@@ -35,6 +36,7 @@ function App() {
                     {/*<Route path="/dialogs" render={ ()=> <DialogsContainer /> } />*/}
                     <Route path="/dialogs" render={ ()=> <RRDialogsContainer /> } />
                     <Route path="/profile" render={ ()=> <Profile /> } />
+                    <Route path="/users" render={ ()=> <UsersContainer /> } />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />

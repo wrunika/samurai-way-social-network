@@ -1,0 +1,19 @@
+.user {
+    display: flex;
+    gap: 15px;
+}
+
+.avatar {
+    display: block;
+    width: 150px;
+    margin-bottom: 10px;
+}
+.followBtn {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: space-around;
+}
