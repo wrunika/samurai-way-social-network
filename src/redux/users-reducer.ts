@@ -6,9 +6,12 @@ type LocationType = {
 }
 export type UsersDataType = {
     id: string
-    avatarUrl: string
+    photos: {
+        small: string
+        large: string
+    }
     followed: boolean
-    fullName: string
+    name: string
     status: string
     location: LocationType
 }
