@@ -8,16 +8,13 @@ import {UsersPageType} from "../../redux/users-reducer";
 
 
 export class Users extends React.Component<UsersPropsType, UsersPageType> {
-    constructor(props: UsersPropsType) {
-        console.log(React.Component)
-        super(props);
+    componentDidMount() {
         axios.get("https://social-network.samuraijs.com/api/1.0/users")
             .then(response => {
                 this.props.setUsers(response.data.items)
             })
     }
     render() {
-        console.log(React.Component)
         return (
             <div>
                 {this.props.usersPage.usersData.map(u => {
