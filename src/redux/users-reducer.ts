@@ -4,28 +4,29 @@ type LocationType = {
     country: string
     city: string
 }
-export type UsersDataType = {
+export type UserDataType = {
+    name: string
     id: string
     photos: {
         small: string
         large: string
     }
-    followed: boolean
-    name: string
     status: string
-    location: LocationType
+    followed: boolean
+    location?: LocationType
 }
 export type UsersPageType = {
-    usersData: UsersDataType[]
+    usersData: UserDataType[]
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
 }
 
 let initialState = {
-    usersData: [
-        /*{id: "1", avatarUrl: "https://avatars.mds.yandex.net/i?id=61cf537c3f7ba8eeae52c1b6cc036dd4c8b2b640-9100256-images-thumbs&n=13", followed: false, fullName: "Greg F.", status: "It is my first happy day.", location: {country: "Poland", city: "Gdansk"}},
-        {id: "2", avatarUrl: "https://avatars.mds.yandex.net/i?id=a4eafe38b4044795c5576f614794a145b4d5aedc-5876581-images-thumbs&n=13", followed: true, fullName: "Lora M.", status: "Hey!", location: {country: "Germany", city: "Bremen"}},
-        {id: "3", avatarUrl: "https://avatars.mds.yandex.net/i?id=2e07ff0cc461213fd3f58b3727c4e346afec656d-8487535-images-thumbs&n=13", followed: false, fullName: "Alex Th.", status: "I like it.", location: {country: "Sweden", city: "Geteborg"}},
-        {id: "4", avatarUrl: "https://avatars.mds.yandex.net/i?id=f63b4ebbdd432cca6df3863d3d4a03ee01ae5a96-7551603-images-thumbs&n=13", followed: false, fullName: "Wojtek D.", status: "Great!", location: {country: "Poland", city: "Poznan"}},*/
-    ]
+    usersData: [],
+    pageSize: 10,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 export const usersReducer = (state: UsersPageType = initialState, action: ActionsTypes): UsersPageType => {
@@ -45,6 +46,16 @@ export const usersReducer = (state: UsersPageType = initialState, action: Action
                 ...state,
                 usersData: [...action.users]
             };
+        case "SET-CURRENT-PAGE":
+            return {
+                ...state,
+                currentPage: action.currentPage
+            };
+        case "SET-TOTAL-USERS-COUNT":
+            return {
+                ...state,
+                totalUsersCount: action.totalUsersCount
+            }
         default:
             return state;
     }
@@ -63,9 +74,23 @@ export const unfollowAC = (id: string) => {
     } as const
 }
 
-export const setUsersAC = (users: UsersDataType[]) => {
+export const setUsersAC = (users: UserDataType[]) => {
     return {
         type: "SET-USERS",
         users
+    } as const
+}
+
+export const setCurrentPageAC = (currentPage: number) => {
+    return {
+        type: "SET-CURRENT-PAGE",
+        currentPage
+    } as const
+}
+
+export const setTotalUsersCountAC = (totalUsersCount: number) => {
+    return {
+        type: "SET-TOTAL-USERS-COUNT",
+        totalUsersCount
     } as const
 }
