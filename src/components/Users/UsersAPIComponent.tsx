@@ -7,6 +7,7 @@ import {Users} from "./Users";
 
 
 class UsersAPIComponent extends React.Component<UsersContainerPropsType, UsersPageType> {
+
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.usersPage.currentPage}&count=${this.props.usersPage.pageSize}`)
             .then(response => {
