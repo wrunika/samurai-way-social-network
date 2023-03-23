@@ -1,5 +1,5 @@
 import {combineReducers, createStore} from "redux";
-import {addPostActionCreator, profileReducer, updateNewPostTextActionCreator} from "./profile-reducer";
+import {addPostActionCreator, profileReducer, setUserProfile, updateNewPostTextActionCreator} from "./profile-reducer";
 import {dialogsReducer, sendMessageAC, updateNewMessageBodyAC} from "./dialogs-reducer";
 import {
     followUser,
@@ -23,6 +23,7 @@ export type ActionsTypes =
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalUsersCount>
     | ReturnType<typeof setIsFetching>
+    | ReturnType<typeof setUserProfile>
 
 //export type RootStoreType = any
 export type RootStoreType = ReturnType<typeof createStore>
@@ -37,3 +38,6 @@ export type AppStateType = ReturnType<typeof rootReducer>
 
 export const store: RootStoreType = createStore(rootReducer);
 console.log(store.getState())
+
+//@ts-ignore
+window.store = store;

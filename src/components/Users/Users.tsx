@@ -2,6 +2,7 @@ import React from 'react';
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {UsersPageType} from "../../redux/users-reducer";
+import {NavLink} from "react-router-dom";
 
 
 type UsersPropsType = {
@@ -30,7 +31,9 @@ export const Users = (props: UsersPropsType) => {
                     return (
                         <div key={u.id} className={s.user}>
                             <div>
-                                <img src={u.photos.small ? u.photos.small : userPhoto} alt="avatar" className={s.avatar}/>
+                                <NavLink to={'/profile/' + u.id}>
+                                    <img src={u.photos.small ? u.photos.small : userPhoto} alt="avatar" className={s.avatar}/>
+                                </NavLink>
                                 {u.followed
                                     ? <button className={s.followBtn} onClick={() => {props.unfollowUser(u.id)}}>UNFOLLOW</button>
                                     : <button className={s.followBtn} onClick={() => {props.followUser(u.id)}}>FOLLOW</button>}
@@ -51,4 +54,4 @@ export const Users = (props: UsersPropsType) => {
             </div>
         </div>
     );
-};
+}

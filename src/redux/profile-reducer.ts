@@ -10,6 +10,19 @@ export type PostDataType = {
 export type ProfilePageType = {
     postsData: PostDataType[]
     newPostText: string
+    profile: ProfileType
+}
+export type ProfileType = {
+    aboutMe?: string
+    contacts?: {}
+    lookingForAJob?: boolean
+    lookingForAJobDescription?: string
+    fullName?: string
+    userId?: number
+    photos?: {
+        small: string
+        large: string
+    }
 }
 
 let initialState = {
@@ -18,7 +31,8 @@ let initialState = {
         {id: "2", message: "Hi, how have you been?", likesCount: 3},
         {id: "3", message: "The weather is nice today!", likesCount: 1},
     ],
-    newPostText: 'it-incubator'
+    newPostText: 'it-incubator',
+    profile: {}
 }
 
 export const profileReducer = (state: ProfilePageType = initialState, action: ActionsTypes): ProfilePageType => {
@@ -32,6 +46,8 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
             return stateCopy;
         case "UPDATE-NEW-POST-TEXT":
             return {...state, newPostText: action.newText};
+        case "SET-USER-PROFILE":
+            return {...state, profile: action.profile};
         default:
             return state;
     }
@@ -57,5 +73,12 @@ export const addPostActionCreator = () => {
     return {
         type: "ADD-POST",
         /*newPostText: newPostText*/
+    } as const
+}
+
+export const setUserProfile = (profile: ProfileType) => {
+    return {
+        type: "SET-USER-PROFILE",
+        profile
     } as const
 }

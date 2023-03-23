@@ -4,6 +4,7 @@ import React from 'react';
 import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 //import {ActionsTypes, ProfilePageType} from "../../redux/store";
 import {RRMyPostsContainer} from "./MyPosts/MyPostsContainer";
+import {ProfilePageType, ProfileType} from "../../redux/profile-reducer";
 
 
 /*type ProfilePropsType = {
@@ -12,10 +13,16 @@ import {RRMyPostsContainer} from "./MyPosts/MyPostsContainer";
     store: any
 }*/
 //const Profile = (props: ProfilePropsType) => {
-const Profile = () => {
+type ProfilePropsType = {
+    profile: ProfileType
+    //profilePage: ProfilePageType
+    //setUserProfile: (profile: ProfileType)=>void
+}
+const Profile = (props: ProfilePropsType) => {
     return (
         <div>
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile} />
+            {/*<ProfileInfo profile={props.profilePage.profile} />*/}
             <RRMyPostsContainer />
             {/*<MyPostsContainer store={props.store} />*/}
             {/*<MyPostsContainer profilePage={props.profilePage} dispatch={props.dispatch} />*/}

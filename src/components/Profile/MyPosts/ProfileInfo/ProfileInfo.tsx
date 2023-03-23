@@ -1,7 +1,16 @@
 import React from 'react';
 import styles from "./ProfileInfo.module.css";
+import {ProfileType} from "../../../../redux/profile-reducer";
+import {Preloader} from "../../../common/Preloader";
 
-const ProfileInfo = () => {
+
+type ProfileInfoType = {
+    profile: ProfileType
+}
+const ProfileInfo = (props: ProfileInfoType) => {
+    if (!props.profile) {
+        return <Preloader />
+    }
     return (
         <div>
             <div>
@@ -10,9 +19,11 @@ const ProfileInfo = () => {
                     alt={""}/>
             </div>
             <div className={styles.avatar}>
-                <img
+                {/*<img
                     src={"https://avatars.mds.yandex.net/i?id=193f144b7eae00375ae3ac129ae1ca7f-5443655-images-thumbs&n=13"}
-                    alt={""}/>
+                    alt={""}/>*/}
+                <img src={props.profile.photos?.small} alt="ava"/>
+                <p>{props.profile.fullName}</p>
                 ava + description
             </div>
         </div>
