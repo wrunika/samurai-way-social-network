@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/Header/Header";
+//import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 //import Profile from "./components/Profile/Profile";
 //import Dialogs from "./components/Dialogs/Dialogs";
@@ -11,6 +11,7 @@ import Settings from "./components/Settings/Settings";
 import {RRDialogsContainer} from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 //import DialogsContainer from "./components/Dialogs/DialogsContainer";
 //import {RootStoreType} from "./redux/redux-store";
 //import {StoreType} from "./redux/store";
@@ -27,7 +28,7 @@ function App() {
     return (
         /*<BrowserRouter>*/
             <div className="app-wrapper">
-                <Header/>
+                <HeaderContainer/>
                 <Navbar/>
                 <div className="app-wrapper-content">
                     {/*<Route path="/dialogs" render={ ()=> <Dialogs dialogsPage={state.dialogsPage} dispatch={props.store.dispatch.bind(props.store)} /> } />

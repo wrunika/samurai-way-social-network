@@ -1,46 +1,40 @@
 import React from 'react';
-import Profile from "./Profile";
 import axios from "axios";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
-import {ProfileType, setUserProfile} from "../../redux/profile-reducer";
-import {RouteComponentProps, withRouter} from "react-router-dom";
+import Header from "./Header";
+import {AuthDataType, AuthType, setAuthUserData} from "../../redux/auth-reducer";
 
 
-type PathParamsType = {
-    userId: string
-}
 
 type MapStateToPropsType = {
-    profile: ProfileType
-    //profilePage: ProfilePageType
+    auth: AuthType
 }
 type MapDispatchToPropsType = {
-    setUserProfile: (profile: ProfileType)=>void
+    setAuthUserData: (auth: AuthDataType)=>void
 }
-export type ProfileContainerPropsType = MapStateToPropsType & MapDispatchToPropsType
-type CommonPropsType = RouteComponentProps<PathParamsType> & ProfileContainerPropsType
+export type HeaderContainerPropsType = MapStateToPropsType & MapDispatchToPropsType
 
-class ProfileContainer extends React.Component<CommonPropsType, ProfileType>{
+
+class HeaderContainer extends React.Component<HeaderContainerPropsType, AuthType>{
     componentDidMount() {
-        debugger
+        //debugger
         console.log('i make request')
-        const userId = this.props.match.params.userId || 2;
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
+            withCredentials: true
+        })
             .then(response => {
-                this.props.setUserProfile(response.data);
+                debugger
+                response.data.resultCode === 0 && this.props.setAuthUserData(response.data.data);
                 console.log(response.data)
             })
     }
 
     render() {
-        debugger
+        //debugger
         console.log(this.props)
         return (
-            <>
-                <Profile profile={this.props.profile} />
-                {/*<Profile profilePage={this.props.profilePage.profile} />*/}
-            </>
+            <Header auth={this.props.auth} />
         );
     }
 
@@ -49,12 +43,11 @@ class ProfileContainer extends React.Component<CommonPropsType, ProfileType>{
 
 const mapStateToProps  = (state: AppStateType): MapStateToPropsType => {
     return {
-        profile: state.profilePage.profile
-        //profilePage: state.profilePage
+        auth: state.auth,
+        //isAuth: state.auth.isAuth
     }
 }
 
-const WithUrlDataContainerComponent =  withRouter(ProfileContainer)
 
-export default connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {setUserProfile}) (WithUrlDataContainerComponent)
+export default connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {setAuthUserData}) (HeaderContainer);
 
