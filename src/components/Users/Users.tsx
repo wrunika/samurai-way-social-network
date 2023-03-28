@@ -49,7 +49,10 @@ export const Users = (props: UsersPropsType) => {
                                     }}>UNFOLLOW</button>
                                     : <button className={s.followBtn} onClick={() => {
                                         axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                            withCredentials: true
+                                            withCredentials: true,
+                                            headers: {
+                                                "API-KEY": "aef60876-afa6-4ce2-873f-4c0463c9c0ac"
+                                            }
                                         })
                                             .then(response => {
                                                 response.data.resultCode === 0 && props.followUser(u.id)
