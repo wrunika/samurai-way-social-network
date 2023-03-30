@@ -22,7 +22,7 @@ class UsersAPIComponent extends React.Component<UsersContainerPropsType, UsersPa
                 this.props.setUsers(response.data.items)
             })
     }
-    render() {
+    /*render() {
         return <Users
             usersPage={this.props.usersPage}
             followUser={this.props.followUser}
@@ -30,7 +30,7 @@ class UsersAPIComponent extends React.Component<UsersContainerPropsType, UsersPa
             setCurrentPage={this.props.setCurrentPage}
             onPageChanged={this.onPageChanged}
         />
-    }
+    }*/
 }
 
 

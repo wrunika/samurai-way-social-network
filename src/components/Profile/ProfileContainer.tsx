@@ -56,5 +56,5 @@ const mapStateToProps  = (state: AppStateType): MapStateToPropsType => {
 
 const WithUrlDataContainerComponent =  withRouter(ProfileContainer)
 
-export default connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {setUserProfile}) (WithUrlDataContainerComponent)
+export default connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {setUserProfile}) (WithUrlDataContainerComponent);
 
