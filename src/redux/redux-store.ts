@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import {addPostActionCreator, profileReducer, setUserProfile, updateNewPostTextActionCreator} from "./profile-reducer";
 import {dialogsReducer, sendMessageAC, updateNewMessageBodyAC} from "./dialogs-reducer";
 import {
@@ -11,6 +11,7 @@ import {
     usersReducer
 } from "./users-reducer";
 import {authReducer, setAuthUserData} from "./auth-reducer";
+import thunkMiddleware from "redux-thunk";
 
 
 export type ActionsTypes =
@@ -40,7 +41,7 @@ export const rootReducer = combineReducers({
 
 export type AppStateType = ReturnType<typeof rootReducer>
 
-export const store: RootStoreType = createStore(rootReducer);
+export const store: RootStoreType = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 console.log(store.getState())
 
 //@ts-ignore

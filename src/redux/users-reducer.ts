@@ -1,4 +1,6 @@
 import {ActionsTypes} from "./redux-store";
+import {usersAPI} from "../api/api";
+import {Dispatch} from "redux";
 
 type LocationType = {
     country: string
@@ -123,4 +125,15 @@ export const toggleFollowingProgress = (isFetching: boolean, userId: number) => 
         isFetching,
         userId
     } as const
+}
+
+export const getUsersThunkCreator = (currentPage: number, pageSize:number) => (dispatch: Dispatch) => {
+    dispatch(setIsFetching(true));
+    usersAPI.getUsers(currentPage, pageSize)
+        .then(data => {
+            dispatch(setCurrentPage(currentPage))
+            dispatch(setIsFetching(false));
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+        })
 }
