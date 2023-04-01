@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from "axios";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
 import Header from "./Header";
@@ -23,14 +22,6 @@ class HeaderContainer extends React.Component<HeaderContainerPropsType, AuthType
             .then(data => {
                 data.resultCode === 0 && this.props.setAuthUserData(data.data);
             })
-        /*axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-            withCredentials: true
-        })
-            .then(response => {
-                debugger
-                response.data.resultCode === 0 && this.props.setAuthUserData(response.data.data);
-                console.log(response.data)
-            })*/
     }
 
     render() {
