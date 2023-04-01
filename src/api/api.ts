@@ -14,11 +14,22 @@ export const usersAPI = {
             .then(response => response.data)
     },
     unfollowUser(userId: number) {
-        return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+        return instance.delete(`follow/${userId}`)
             .then(response => response.data)
     },
     followUser(userId: number) {
-        return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+        return instance.post(`follow/${userId}`)
+            .then(response => response.data)
+    },
+    getProfile(userId: string | number) {
+        return instance.get(`profile/${userId}`)
+            .then(response => response.data)
+    }
+}
+
+export const authAPI = {
+    me() {
+        return instance.get(`auth/me`)
             .then(response => response.data)
     }
 }
