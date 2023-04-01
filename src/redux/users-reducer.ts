@@ -6,7 +6,8 @@ type LocationType = {
 }
 export type UserDataType = {
     name: string
-    id: string
+    //id: string
+    id: number
     photos: {
         small: string
         large: string
@@ -21,7 +22,7 @@ export type UsersPageType = {
     totalUsersCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress: string[]
+    followingInProgress: number[]
 }
 
 let initialState = {
@@ -69,21 +70,19 @@ export const usersReducer = (state: UsersPageType = initialState, action: Action
             return {
                 ...state,
                 followingInProgress: action.isFetching ? [...state.followingInProgress, action.userId] : state.followingInProgress.filter(id => id != action.userId)
-                //followingInProgress: action.
-                //followingInProgress: action.followingInProgress
             };
         default:
             return state;
     }
 }
 
-export const followUser = (id: string) => {
+export const followUser = (id: number) => {
     return {
         type: "FOLLOW-USER",
         id
     } as const
 }
-export const unfollowUser = (id: string) => {
+export const unfollowUser = (id: number) => {
     return {
         type: "UNFOLLOW-USER",
         id
@@ -118,8 +117,7 @@ export const setIsFetching = (isFetching: boolean) => {
     } as const
 }
 
-export const toggleFollowingProgress = (isFetching: boolean, userId: string) => {
-//export const toggleFollowingProgress = (followingInProgress: boolean) => {
+export const toggleFollowingProgress = (isFetching: boolean, userId: number) => {
     return {
         type: "TOGGLE-FOLLOWING-PROGRESS",
         isFetching,

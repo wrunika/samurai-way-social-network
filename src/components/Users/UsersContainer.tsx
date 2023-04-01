@@ -19,13 +19,13 @@ type MapStateToPropsType = {
     usersPage: UsersPageType
 }
 type MapDispatchToPropsType = {
-    followUser: (id: string)=>void
-    unfollowUser: (id: string)=>void
+    followUser: (id: number)=>void
+    unfollowUser: (id: number)=>void
     setUsers: (users: UserDataType[])=> void
     setCurrentPage: (currentPage: number)=>void
     setTotalUsersCount: (totalUsersCount: number)=>void
     setIsFetching: (isFetching: boolean)=>void
-    toggleFollowingProgress: (isFetching: boolean, userId: string)=>void
+    toggleFollowingProgress: (isFetching: boolean, userId: number)=>void
 
 }
 //export type UsersContainerPropsType = MapStateToPropsType & {followUser: any, unfollowUser:any, setUsers:any, setCurrentPage: any, setTotalUsersCount:any, setIsFetching:any}
