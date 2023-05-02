@@ -1,5 +1,11 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
-import {addPostActionCreator, profileReducer, setUserProfile, updateNewPostTextActionCreator} from "./profile-reducer";
+import {
+    addPostActionCreator,
+    profileReducer,
+    setUserProfile,
+    setUserStatus,
+    updateNewPostTextActionCreator
+} from "./profile-reducer";
 import {dialogsReducer, sendMessageAC, updateNewMessageBodyAC} from "./dialogs-reducer";
 import {
     followUser,
@@ -28,6 +34,7 @@ export type ActionsTypes =
     | ReturnType<typeof setUserProfile>
     | ReturnType<typeof setAuthUserData>
     | ReturnType<typeof toggleFollowingProgress>
+    | ReturnType<typeof setUserStatus>
 
 //export type RootStoreType = any
 export type RootStoreType = ReturnType<typeof createStore>
