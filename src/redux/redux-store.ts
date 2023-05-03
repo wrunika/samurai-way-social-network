@@ -18,6 +18,7 @@ import {
 } from "./users-reducer";
 import {authReducer, setAuthUserData} from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
+import { reducer as FormReducer } from 'redux-form';
 
 
 export type ActionsTypes =
@@ -43,7 +44,8 @@ export const rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     usersPage: usersReducer,
-    auth: authReducer
+    auth: authReducer,
+    form: FormReducer
 });
 
 export type AppStateType = ReturnType<typeof rootReducer>
