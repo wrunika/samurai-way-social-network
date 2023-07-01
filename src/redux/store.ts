@@ -1,3 +1,5 @@
+import {ActionsTypes} from "./redux-store";
+/*
 import {addPostActionCreator, profileReducer, updateNewPostTextActionCreator} from "./profile-reducer";
 import {dialogsReducer, sendMessageAC, updateNewMessageBodyAC} from "./dialogs-reducer";
 
@@ -33,8 +35,8 @@ type StoreType = {
     _callSubscriber: () => void
     subscribe: (observer: () => void) => void
     getState: () => StateType
-    /*addPost: ()=>void
-    updateNewPostText: (newText: string)=>void*/
+    /!*addPost: ()=>void
+    updateNewPostText: (newText: string)=>void*!/
     dispatch: (action: ActionsTypes) => void
 }
 
@@ -45,7 +47,7 @@ type ActionsTypes =
     | ReturnType<typeof updateNewMessageBodyAC> | ReturnType<typeof sendMessageAC>
 
 
-/*export const updateNewPostTextActionCreator = (newText: string) => {
+/!*export const updateNewPostTextActionCreator = (newText: string) => {
     return {
         type: "UPDATE-NEW-POST-TEXT",
         newText: newText
@@ -56,9 +58,9 @@ export const addPostActionCreator = (newPostText: string) => {
         type: "ADD-POST",
         newPostText: newPostText
     } as const
-}*/
+}*!/
 
-/*export const updateNewMessageBodyAC = (newMessageBody: string) => {
+/!*export const updateNewMessageBodyAC = (newMessageBody: string) => {
     return {
         type: "UPDATE-NEW-MESSAGE-BODY",
         newMessageBody: newMessageBody
@@ -70,7 +72,7 @@ export const sendMessageAC = (newMessage: string) => {
         type: "SEND-MESSAGE",
         newMessage: newMessage
     } as const
-}*/
+}*!/
 //export const store: StoreType = {
 const store: StoreType = {
     _state: {
@@ -102,7 +104,7 @@ const store: StoreType = {
             newMessageBody: ''
         }
     },
-    /*addPost() {
+    /!*addPost() {
         const newPost: PostDataType = {id: "5", message: this._state.profilePage.newPostText, likesCount: 0};
         this._state.profilePage.postsData.push(newPost)
         this._state.profilePage.newPostText = ''
@@ -111,7 +113,7 @@ const store: StoreType = {
     updateNewPostText(newText: string) {
         this._state.profilePage.newPostText = newText
         this._callSubscriber()
-    },*/
+    },*!/
     _callSubscriber() {
         console.log('state was changed')
     },
@@ -128,7 +130,7 @@ const store: StoreType = {
 
         this._callSubscriber()
 
-        /*if (action.type === "ADD-POST") {
+        /!*if (action.type === "ADD-POST") {
             const newPost: PostDataType = {id: "5", message: action.newPostText, likesCount: 0};
             this._state.profilePage.postsData.push(newPost)
             this._state.profilePage.newPostText = ''
@@ -145,12 +147,12 @@ const store: StoreType = {
             this._state.dialogsPage.newMessageBody = ""
             this._state.dialogsPage.messagesData.push({id: 7, message: messageBody})
             this._callSubscriber()
-        }*/
+        }*!/
     }
 }
 
 
-/*export const state: StateType = {
+/!*export const state: StateType = {
     profilePage: {
         postsData: [
             {id: "1", message: "It is my first post.", likesCount: 5},
@@ -197,4 +199,4 @@ export const updateNewPostText = (newText: string) => {
 
 export const subscribe = (observer: ()=>void) => {
     rerenderEntireTree = observer;
-}*/
+}*!/*/

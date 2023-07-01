@@ -3,10 +3,9 @@ import {
     addPostActionCreator,
     profileReducer,
     setUserProfile,
-    setUserStatus,
-    updateNewPostTextActionCreator
+    setUserStatus
 } from "./profile-reducer";
-import {dialogsReducer, sendMessageAC, updateNewMessageBodyAC} from "./dialogs-reducer";
+import {dialogsReducer, sendMessageAC} from "./dialogs-reducer";
 import {
     followUser,
     setCurrentPage,
@@ -23,8 +22,6 @@ import { reducer as FormReducer } from 'redux-form';
 
 export type ActionsTypes =
     ReturnType<typeof addPostActionCreator>
-    | ReturnType<typeof updateNewPostTextActionCreator>
-    | ReturnType<typeof updateNewMessageBodyAC>
     | ReturnType<typeof sendMessageAC>
     | ReturnType<typeof followUser>
     | ReturnType<typeof unfollowUser>
