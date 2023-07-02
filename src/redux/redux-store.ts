@@ -18,6 +18,8 @@ import {
 import {authReducer, setAuthUserData} from "./auth-reducer";
 import thunkMiddleware from "redux-thunk";
 import { reducer as FormReducer } from 'redux-form';
+import {ThunkDispatch} from 'redux-thunk';
+import {AnyAction} from 'redux';
 
 
 export type ActionsTypes =
@@ -46,6 +48,7 @@ export const rootReducer = combineReducers({
 });
 
 export type AppStateType = ReturnType<typeof rootReducer>
+export type AppThunkDispatch = ThunkDispatch<AppStateType, any, AnyAction>
 
 export const store: RootStoreType = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 console.log(store.getState())

@@ -5,6 +5,7 @@ import {AuthType} from "../../redux/auth-reducer";
 
 type HeaderPropsType = {
     auth: AuthType
+    logout: () => void
 }
 
 const Header = (props: HeaderPropsType) => {
@@ -16,8 +17,9 @@ const Header = (props: HeaderPropsType) => {
                 alt={""}/>
             </div>
             <div className={styles.loginBlock}>
-                {props.auth.isAuth ? props.auth.login :
-                <NavLink to={"/login"}>Login</NavLink>}
+                {props.auth.isAuth
+                    ? <div>{props.auth.login} - <button onClick={props.logout}>Log out</button></div>
+                    : <NavLink to={"/login"}>Login</NavLink>}
             </div>
         </header>
     );
