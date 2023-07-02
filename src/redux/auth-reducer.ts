@@ -1,5 +1,6 @@
 import {ActionsTypes, AppThunkDispatch} from "./redux-store";
 import {authAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 
 export type AuthDataType = {
@@ -50,7 +51,12 @@ export const getAuthUserData = () => (dispatch: AppThunkDispatch) => {
 export const login = (email: string, password: string, rememberMe: boolean) => (dispatch: AppThunkDispatch) => {
     authAPI.login(email, password, rememberMe)
         .then(data => {
-            data.resultCode === 0 && dispatch(getAuthUserData())
+            if (data.resultCode === 0) {
+                dispatch(getAuthUserData())
+            } else {
+                let message = data.messages.length > 0 ? data.messages[0] : 'Some error';
+                dispatch(stopSubmit('login', {_error: message}))
+            }
         })
 }
 
