@@ -21,18 +21,18 @@ export const usersAPI = {
         return instance.post(`follow/${userId}`)
             .then(response => response.data)
     },
-    getProfile(userId: string | number) {
+    getProfile(userId: string | number | null) {
         console.warn('Obsolete method. Please use profileAPI object')
         return profileAPI.getProfile(userId)
     }
 }
 
 export const profileAPI = {
-    getProfile(userId: string | number) {
+    getProfile(userId: string | number | null) {
         return instance.get(`profile/${userId}`)
             .then(response => response.data)
     },
-    getStatus(userId: string | number) {
+    getStatus(userId: string | number | null) {
         return instance.get(`profile/status/${userId}`)
             .then(response => response.data)
     },

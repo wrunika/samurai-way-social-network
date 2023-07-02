@@ -85,11 +85,11 @@ export const setUserStatus = (status: string) => {
     } as const
 }
 
-export const getUserProfile = (userId: string | number) => (dispatch: Dispatch) => {
+export const getUserProfile = (userId: string | number | null) => (dispatch: Dispatch) => {
     usersAPI.getProfile(userId)
         .then(data => dispatch(setUserProfile(data)))
 }
-export const getUserStatus = (userId: string | number) => (dispatch: Dispatch) => {
+export const getUserStatus = (userId: string | number | null) => (dispatch: Dispatch) => {
     profileAPI.getStatus(userId)
         .then(data => dispatch(setUserStatus(data)))
 }
