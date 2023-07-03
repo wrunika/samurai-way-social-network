@@ -20,6 +20,7 @@ import thunkMiddleware from "redux-thunk";
 import { reducer as FormReducer } from 'redux-form';
 import {ThunkDispatch} from 'redux-thunk';
 import {AnyAction} from 'redux';
+import {appReducer, setIsInitialized} from "./app-reducer";
 
 
 export type ActionsTypes =
@@ -35,6 +36,7 @@ export type ActionsTypes =
     | ReturnType<typeof setAuthUserData>
     | ReturnType<typeof toggleFollowingProgress>
     | ReturnType<typeof setUserStatus>
+    | ReturnType<typeof setIsInitialized>
 
 //export type RootStoreType = any
 export type RootStoreType = ReturnType<typeof createStore>
@@ -44,6 +46,7 @@ export const rootReducer = combineReducers({
     dialogsPage: dialogsReducer,
     usersPage: usersReducer,
     auth: authReducer,
+    app: appReducer,
     form: FormReducer
 });
 

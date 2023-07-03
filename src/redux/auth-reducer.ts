@@ -41,7 +41,7 @@ export const setAuthUserData = (payload: AuthType) => {
 }
 
 export const getAuthUserData = () => (dispatch: AppThunkDispatch) => {
-    authAPI.me()
+    return authAPI.me()
         .then(data => {
             //data.resultCode === 0 && dispatch(setAuthUserData(data.data));
             data.resultCode === 0 && dispatch(setAuthUserData({...data.data, isAuth: true}));
