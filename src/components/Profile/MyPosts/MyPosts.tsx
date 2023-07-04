@@ -5,7 +5,7 @@ import {MyPostsPropsType} from "./MyPostsContainer";
 import {AddPostReduxForm, NewPostType} from "./AddPostForm";
 
 
-const MyPosts = (props: MyPostsPropsType) => {
+const MyPosts = React.memo((props: MyPostsPropsType) => {
 
     let postsElements = props.profilePage.postsData.map((p, index) => <Post key={index} message={p.message} likesCount={p.likesCount}/>)
     //const newPostElement = React.createRef<HTMLTextAreaElement>();
@@ -26,6 +26,6 @@ const MyPosts = (props: MyPostsPropsType) => {
 
         </div>
     );
-}
+})
 
 export default MyPosts;
