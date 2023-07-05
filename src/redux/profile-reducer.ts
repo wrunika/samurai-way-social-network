@@ -53,6 +53,8 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Ac
             return {...state, profile: action.profile};
         case "SET-USER-STATUS":
             return {...state, status: action.status}
+        case "DELETE-POST":
+            return {...state, postsData: state.postsData.filter(p => p.id !== action.id)}
         default:
             return state;
     }
@@ -82,6 +84,12 @@ export const setUserStatus = (status: string) => {
     return {
         type: "SET-USER-STATUS",
         status
+    } as const
+}
+export const deletePost = (id: string) => {
+    return {
+        type: "DELETE-POST",
+        id
     } as const
 }
 

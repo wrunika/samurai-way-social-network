@@ -1,6 +1,6 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {
-    addPostActionCreator,
+    addPostActionCreator, deletePost,
     profileReducer,
     setUserProfile,
     setUserStatus
@@ -37,6 +37,7 @@ export type ActionsTypes =
     | ReturnType<typeof toggleFollowingProgress>
     | ReturnType<typeof setUserStatus>
     | ReturnType<typeof setIsInitialized>
+    | ReturnType<typeof deletePost>
 
 //export type RootStoreType = any
 export type RootStoreType = ReturnType<typeof createStore>
