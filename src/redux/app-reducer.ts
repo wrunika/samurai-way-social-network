@@ -11,7 +11,7 @@ const initialState = {
 
 export const appReducer = (state: AppDataType = initialState, action: ActionsTypes): AppDataType => {
   switch (action.type) {
-      case "SET-IS-INITIALIZED":
+      case "auth/SET-IS-INITIALIZED":
           return {...state, isInitialized: true}
       default:
           return state;
@@ -20,7 +20,7 @@ export const appReducer = (state: AppDataType = initialState, action: ActionsTyp
 
 export const setIsInitialized = () => {
   return {
-      type: 'SET-IS-INITIALIZED'
+      type: 'auth/SET-IS-INITIALIZED'
   } as const
 }
 

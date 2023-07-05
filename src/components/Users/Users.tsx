@@ -1,8 +1,7 @@
 import React from 'react';
-import s from "./Users.module.css";
-import userPhoto from "../../assets/images/user.png";
 import {UserDataType} from "../../redux/users-reducer";
-import {NavLink} from "react-router-dom";
+import {Paginator} from "../common/Paginator/Paginator";
+import {User} from "./User";
 
 
 type UsersPropsType = {
@@ -17,24 +16,21 @@ type UsersPropsType = {
     onPageChanged: (pageNumber: number) => void
 }
 export const Users = (props: UsersPropsType) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
-    console.log(props)
+
     return (
         <div>
             <div>
-                <div>
-                    {pages.map((p, index) => {
-                        const pageStyle = s.page + ' ' + ((p === props.currentPage) ? s.selectedPage : '');
-                        return <span key={index} onClick={()=>props.onPageChanged(p)} className={pageStyle}>{p + ' '}</span>
-                    })}
-                </div>
+                <Paginator
+                    pageSize={props.pageSize}
+                    currentPage={props.currentPage}
+                    totalUsersCount={props.totalUsersCount}
+                    onPageChanged={props.onPageChanged}
+                />
+
                 {props.users.map(u => {
                     return (
-                        <div key={u.id} className={s.user}>
+                        <User key={u.id} user={u} followingInProgress={props.followingInProgress} follow={props.follow} unfollow={props.unfollow} />
+                        /*<div key={u.id} className={s.user}>
                             <div>
                                 <NavLink to={'/profile/' + u.id}>
                                     <img src={u.photos.small ? u.photos.small : userPhoto} alt="avatar" className={s.avatar}/>
@@ -58,7 +54,7 @@ export const Users = (props: UsersPropsType) => {
                                     <p>{"u.location.country"}</p>
                                 </div>
                             </div>
-                        </div>
+                        </div>*/
                     )
                 })}
             </div>

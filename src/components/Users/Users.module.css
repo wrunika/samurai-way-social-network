@@ -17,9 +17,3 @@
     display: flex;
     justify-content: space-around;
 }
- .page {
-     cursor: pointer;
- }
-.selectedPage {
-    font-weight: bold;
-}
