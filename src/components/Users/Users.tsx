@@ -23,7 +23,7 @@ export const Users = (props: UsersPropsType) => {
                 <Paginator
                     pageSize={props.pageSize}
                     currentPage={props.currentPage}
-                    totalUsersCount={props.totalUsersCount}
+                    totalItemsCount={props.totalUsersCount}
                     onPageChanged={props.onPageChanged}
                 />
 
