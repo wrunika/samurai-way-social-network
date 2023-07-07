@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/samurai-way-social-network/static/css/main.3ee0a436.css",
+    "main.js": "/samurai-way-social-network/static/js/main.6eedfc46.js",
+    "static/css/581.8e0b61cd.chunk.css": "/samurai-way-social-network/static/css/581.8e0b61cd.chunk.css",
+    "static/js/581.c78eedad.chunk.js": "/samurai-way-social-network/static/js/581.c78eedad.chunk.js",
+    "static/css/80.6cd91964.chunk.css": "/samurai-way-social-network/static/css/80.6cd91964.chunk.css",
+    "static/js/80.aff060ca.chunk.js": "/samurai-way-social-network/static/js/80.aff060ca.chunk.js",
+    "static/css/944.608097b4.chunk.css": "/samurai-way-social-network/static/css/944.608097b4.chunk.css",
+    "static/js/944.8954a7b4.chunk.js": "/samurai-way-social-network/static/js/944.8954a7b4.chunk.js",
+    "static/js/434.e199f8cc.chunk.js": "/samurai-way-social-network/static/js/434.e199f8cc.chunk.js",
+    "static/media/Spinner-1s-200px.svg": "/samurai-way-social-network/static/media/Spinner-1s-200px.7f937069527c36c14f9172662cff9c7b.svg",
+    "index.html": "/samurai-way-social-network/index.html",
+    "main.3ee0a436.css.map": "/samurai-way-social-network/static/css/main.3ee0a436.css.map",
+    "main.6eedfc46.js.map": "/samurai-way-social-network/static/js/main.6eedfc46.js.map",
+    "581.8e0b61cd.chunk.css.map": "/samurai-way-social-network/static/css/581.8e0b61cd.chunk.css.map",
+    "581.c78eedad.chunk.js.map": "/samurai-way-social-network/static/js/581.c78eedad.chunk.js.map",
+    "80.6cd91964.chunk.css.map": "/samurai-way-social-network/static/css/80.6cd91964.chunk.css.map",
+    "80.aff060ca.chunk.js.map": "/samurai-way-social-network/static/js/80.aff060ca.chunk.js.map",
+    "944.608097b4.chunk.css.map": "/samurai-way-social-network/static/css/944.608097b4.chunk.css.map",
+    "944.8954a7b4.chunk.js.map": "/samurai-way-social-network/static/js/944.8954a7b4.chunk.js.map",
+    "434.e199f8cc.chunk.js.map": "/samurai-way-social-network/static/js/434.e199f8cc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ee0a436.css",
+    "static/js/main.6eedfc46.js"
+  ]
+}
