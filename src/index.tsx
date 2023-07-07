@@ -7,7 +7,7 @@ import App from './App';
 
 import './index.css';
 import {store} from "./redux/redux-store";
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 //import {Provider, StoreContext} from "./StoreContext";
 
@@ -16,14 +16,14 @@ import {Provider} from "react-redux";
 
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
         {/*<StoreContext.Provider value={store}>*/}
         <Provider store={store}>
             <App/>
             {/*<App store={store}/>*/}
         </Provider>
         {/*</StoreContext.Provider>*/}
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById('root')
 );
 
