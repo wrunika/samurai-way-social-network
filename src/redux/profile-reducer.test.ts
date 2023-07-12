@@ -6,7 +6,27 @@ let state = {
         {id: "2", message: "Hi, how have you been?", likesCount: 3},
         {id: "3", message: "The weather is nice today!", likesCount: 1},
     ],
-    profile: {},
+    profile: {
+        aboutMe: '',
+        contacts: {
+            github: '',
+            vk: '',
+            facebook: '',
+            instagram: '',
+            twitter: '',
+            website: '',
+            youtube: '',
+            mainLink: '',
+        },
+        lookingForAJob: false,
+        lookingForAJobDescription: '',
+        fullName: '',
+        userId: null,
+        photos: {
+            small: '',
+            large: ''
+        }
+    },
     status: ""
 }
 it('new post should be added', function () {

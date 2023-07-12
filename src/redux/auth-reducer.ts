@@ -60,7 +60,6 @@ export const getAuthUserData = () => async (dispatch: AppThunkDispatch) => {
     //return authAPI.me()
     const data = await authAPI.me()
     console.log(data)
-    debugger
     //data.resultCode === 0 && dispatch(setAuthUserData(data.data));
     data.resultCode === 0 && dispatch(setAuthUserData({...data.data, isAuth: true}));
 

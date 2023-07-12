@@ -7,27 +7,25 @@ import React from "react";
 
 type PropsType = {
     profile: ProfileType
+    initialValues: ProfileType
     //handleSubmit: any
     //error: any
 }
-//const ProfileDataForm: React.FC<InjectedFormProps<PropsType>> = ({profile, handleSubmit,error}) => {
-const ProfileDataForm: React.FC<InjectedFormProps<PropsType>> = (props) => {
+//const ProfileDataForm = (props: any) => {
+//const ProfileDataForm = ({profile, handleSubmit,error}: any) => {
+const ProfileDataForm: React.FC<InjectedFormProps<PropsType, PropsType> & PropsType> = (props) => {
     console.log(props)
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <button onClick={() => {
-                }}>Save
-                </button>
-                {props.error && <div className={styles.formSummaryError}>
-                    {props.error}
-                </div>}
+                <button>Save</button>
+                {props.error && <div className={styles.formSummaryError}>{props.error}</div>}
             </div>
             <div>
                 <b>Full name:</b>: <Field name={'fullName'} placeholder={'Full name'} component={Input} />
             </div>
             <div>
-                <b>Looking for a job</b>: <Field name={'lookingForAJob'} component={Input}/>
+                <b>Looking for a job</b>: <Field name={'lookingForAJob'} component={Input} type={'checkbox'} />
             </div>
             <div>
                 <b>My professional skills</b>: <Field name={"lookingForAJobDescription"} placeholder={"My professional skills"} component={Textarea} />
@@ -37,18 +35,20 @@ const ProfileDataForm: React.FC<InjectedFormProps<PropsType>> = (props) => {
             </div>
 
 
-            {/*<div>
+            <div>
                 <b>Contacts</b>: {Object.keys(props.profile.contacts).map(key => {
-                    debugger
+                    //debugger
                 return <div key={key} className={styles.contact}>
-                    <b>{key}: <Field name={"fullName." + key} copmonent={Input} placeholder={key}/></b>
+                    <b>{key}: <Field name={"contacts." + key} component={Input} placeholder={key}/></b>
                 </div>
             })}
-            </div>*/}
+            </div>
         </form>
     )
 }
 
-const ProfileDataFormReduxForm = reduxForm<PropsType>({form: "edit-profile"})(ProfileDataForm)
+//const ProfileDataFormReduxForm = reduxForm<PropsType, PropsType>({form: "edit-profile"})(ProfileDataForm)
+const ProfileDataFormReduxForm = reduxForm<PropsType, PropsType>({form: "edit-profile"})(ProfileDataForm)
+//const ProfileDataFormReduxForm = reduxForm({form: "edit-profile"})(ProfileDataForm)
 
 export default ProfileDataFormReduxForm

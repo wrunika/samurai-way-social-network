@@ -1,4 +1,3 @@
-import {ActionsTypes} from "./redux-store";
 import {usersAPI} from "../api/api";
 import {Dispatch} from "redux";
 
@@ -27,6 +26,14 @@ export type UsersPageType = {
     followingInProgress: number[]
 }
 
+type ActionsType = ReturnType<typeof followUser>
+    | ReturnType<typeof unfollowUser>
+    | ReturnType<typeof setUsers>
+    | ReturnType<typeof setCurrentPage>
+    | ReturnType<typeof setTotalUsersCount>
+    | ReturnType<typeof setIsFetching>
+    | ReturnType<typeof toggleFollowingProgress>
+
 let initialState = {
     usersData: [],
     pageSize: 10,
@@ -36,7 +43,7 @@ let initialState = {
     followingInProgress: []
 }
 
-export const usersReducer = (state: UsersPageType = initialState, action: ActionsTypes): UsersPageType => {
+export const usersReducer = (state: UsersPageType = initialState, action: ActionsType): UsersPageType => {
     switch (action.type) {
         case "users/FOLLOW-USER":
             return {

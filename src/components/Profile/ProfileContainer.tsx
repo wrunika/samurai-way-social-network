@@ -2,7 +2,14 @@ import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux-store";
-import {getUserProfile, getUserStatus, updateUserStatus, ProfileType, savePhoto} from "../../redux/profile-reducer";
+import {
+    getUserProfile,
+    getUserStatus,
+    updateUserStatus,
+    ProfileType,
+    savePhoto,
+    saveProfile
+} from "../../redux/profile-reducer";
 import {RouteComponentProps, withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
@@ -23,6 +30,7 @@ type MapDispatchToPropsType = {
     getUserStatus: (userId: string | number | null) => void
     updateUserStatus: (status: string) => void
     savePhoto: (photo: File) => void
+    saveProfile: (formContactsData: any) => void
 }
 export type ProfileContainerPropsType = MapStateToPropsType & MapDispatchToPropsType
 type CommonPropsType = RouteComponentProps<PathParamsType> & ProfileContainerPropsType
@@ -58,7 +66,7 @@ class ProfileContainer extends React.Component<CommonPropsType, ProfileType>{
                     savePhoto={this.props.savePhoto}
                     profile={this.props.profile}
                     status={this.props.status}
-                    updateUserStatus={this.props.updateUserStatus} />
+                    updateUserStatus={this.props.updateUserStatus}  saveProfile={this.props.saveProfile}/>
             </>
         );
     }
@@ -74,7 +82,7 @@ const mapStateToProps  = (state: AppStateType): MapStateToPropsType => {
 }
 
 export default compose<React.ComponentType>(
-    connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto}),
+    connect<MapStateToPropsType, MapDispatchToPropsType, {}, AppStateType>(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfile}),
     withAuthRedirect,
     withRouter
 ) (ProfileContainer)

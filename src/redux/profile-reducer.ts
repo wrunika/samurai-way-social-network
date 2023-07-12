@@ -1,6 +1,7 @@
-import {ActionsTypes} from "./redux-store";
 import {Dispatch} from "redux";
 import {profileAPI, usersAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
+import {AppStateType, AppThunkDispatch} from "./redux-store";
 
 
 export type PostDataType = {
@@ -18,15 +19,32 @@ type PhotosType = {
     small: string
     large: string
 }
-export type ProfileType = {
-    aboutMe?: string
-    contacts?: {}
-    lookingForAJob?: boolean
-    lookingForAJobDescription?: string
-    fullName?: string
-    userId?: number
-    photos?: PhotosType
+type ContactsType = {
+    github: string
+    vk: string
+    facebook: string
+    instagram: string
+    twitter: string
+    website: string
+    youtube: string
+    mainLink: string
 }
+export type ProfileType = {
+    aboutMe: string
+    contacts: ContactsType | any
+    //contacts: any
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    userId: number | null
+    photos: PhotosType
+}
+
+type ActionsType = ReturnType<typeof setUserProfile>
+    | ReturnType<typeof addPostActionCreator>
+    | ReturnType<typeof setUserStatus>
+    | ReturnType<typeof deletePost>
+    | ReturnType<typeof savePhotoSuccess>
 
 let initialState = {
     postsData: [
@@ -35,11 +53,31 @@ let initialState = {
         {id: "3", message: "The weather is nice today!", likesCount: 1},
     ],
     //newPostText: 'it-incubator',
-    profile: {},
+    profile: {
+        aboutMe: '',
+        contacts: {
+            github: '',
+            vk: '',
+            facebook: '',
+            instagram: '',
+            twitter: '',
+            website: '',
+            youtube: '',
+            mainLink: '',
+        },
+        lookingForAJob: false,
+        lookingForAJobDescription: '',
+        fullName: '',
+        userId: null,
+        photos: {
+            small: '',
+            large: ''
+        }
+    },
     status: ""
 }
 
-export const profileReducer = (state: ProfilePageType = initialState, action: ActionsTypes): ProfilePageType => {
+export const profileReducer = (state: ProfilePageType = initialState, action: ActionsType): ProfilePageType => {
     switch (action.type) {
         case "profile/ADD-POST":
             const stateCopy = {...state};
@@ -116,8 +154,19 @@ export const updateUserStatus = (status: string) => async (dispatch: Dispatch) =
 }
 
 export const savePhoto = (file: File) => async (dispatch: Dispatch) => {
-        let response = await profileAPI.savePhoto(file)
-        if (response.data.resultCode === 0) {
-            dispatch(savePhotoSuccess(response.data.data.photos))
-        }
+    const response = await profileAPI.savePhoto(file)
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.data.photos))
     }
+}
+
+export const saveProfile = (profile: ProfileType) => async (dispatch: AppThunkDispatch, getState: ()=>AppStateType) => {
+    const userId = getState().auth.id
+    const response = await profileAPI.saveProfile(profile)
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId)) //fit this
+    } else {
+        dispatch(stopSubmit('edit-profile', {_error: response.data.messages[0]}))
+        return Promise.reject(response.data.messages[0])
+    }
+}
