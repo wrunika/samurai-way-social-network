@@ -13,9 +13,10 @@ type FormDataType = {
     login: string
     password: string
     rememberMe: boolean
+    captchaUrl: string
 }
 
-const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, error}) => {
+const LoginForm: React.FC<InjectedFormProps<FormDataType, LoginPropsType> & LoginPropsType> = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -38,6 +39,10 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, err
             <div>
                 <Field type={'checkbox'} name={'rememberMe'} component={Input}/> remember me
             </div>
+
+            {captchaUrl && <img alt={''} src={captchaUrl}/>}
+            {captchaUrl && <Field placeholder={'Symbols from image'} name={'captcha'} component={Input} validate={[required]} />}
+
             {error && <div className={s.formSummaryError}>
                 {error}
             </div>}
@@ -48,19 +53,21 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, err
     )
 }
 
-const LoginReduxForm = reduxForm<FormDataType>({
+const LoginReduxForm = reduxForm<FormDataType, LoginPropsType>({
     form: 'login'
 })(LoginForm)
 
 const mapStateToProps = (state:AppStateType):MapStatePropsType => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.url
     }
 }
 const Login = (props: LoginPropsType) => {
+//const Login = (props: any) => {
     const onSubmit = (formData: FormDataType) => {
         console.log(formData)
-        props.login(formData.login, formData.password, formData.rememberMe)
+        props.login && props.login(formData.login, formData.password, formData.rememberMe, formData.captchaUrl)
     }
 
     if (props.isAuth) return <Redirect to={"/profile"}/>
@@ -68,17 +75,18 @@ const Login = (props: LoginPropsType) => {
     return (
         <div>
             <h1>LOGIN</h1>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>
 
     )
 }
 
 type MapDispatchToPropsType = {
-    login: (email: string, password: string, rememberMe: boolean) => void
+    login?: (email: string, password: string, rememberMe: boolean, captchaUrl: string) => void
 }
 type MapStatePropsType = {
-    isAuth: boolean
+    isAuth?: boolean
+    captchaUrl: string
 }
 type LoginPropsType = MapStatePropsType & MapDispatchToPropsType
 
