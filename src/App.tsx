@@ -43,19 +43,21 @@ class App extends React.Component<AppPropsType, AuthType> {
             <div className="app-wrapper">
                 <HeaderContainer/>
                 <Navbar/>
-                <Switch>
-                <div className="app-wrapper-content">
-                    <Route exact path={"/"} render={() => <Redirect to={"/profile"} />} />
-                    <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
-                    <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
-                    <Route path="/users" render={() => <UsersContainer/>}/>
-                    <Route path="/news" component={News}/>
-                    <Route path="/music" component={Music}/>
-                    <Route path="/settings" component={Settings}/>
-                    <Route path="/login" render={withSuspense(Login)}/>
-                    <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
-                </div>
-                </Switch>
+
+                    <div className="app-wrapper-content">
+                        <Switch>
+                        <Route exact path={"/"} render={() => <Redirect to={"/profile"} />} />
+                        <Route path="/dialogs" render={withSuspense(DialogsContainer)}/>
+                        <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)}/>
+                        <Route path="/users" render={() => <UsersContainer/>}/>
+                        <Route path="/news" component={News}/>
+                        <Route path="/music" component={Music}/>
+                        <Route path="/settings" component={Settings}/>
+                        <Route path="/login" render={withSuspense(Login)}/>
+                        <Route path="*" render={() => <div>404 NOT FOUND</div>}/>
+                        </Switch>
+                    </div>
+
             </div>
         );
     }
