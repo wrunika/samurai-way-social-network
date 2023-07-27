@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Header.module.css'
 import {NavLink} from "react-router-dom";
 import {AuthType} from "../../redux/auth-reducer";
+import socialNetwork from "./../../assets/images/logo-icon.png";
 
 type HeaderPropsType = {
     auth: AuthType
@@ -11,14 +12,15 @@ type HeaderPropsType = {
 const Header = (props: HeaderPropsType) => {
     return(
         <header className={styles.header}>
-            <div>
+            <div className={styles.logo}>
                 <img
-                src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTN9TaGrF3qmBtBoXN5TaTdijk8dUfq2z7w6a-QjVoEjtxv2f2IcWph0-e7avSfpgTjdg&usqp=CAU"}
+                src={socialNetwork}
                 alt={""}/>
+                SocialV
             </div>
             <div className={styles.loginBlock}>
                 {props.auth.isAuth
-                    ? <div>{props.auth.login} - <button onClick={props.logout}>Log out</button></div>
+                    ? <div>{props.auth.login} - <button className={styles.logoutBtn} onClick={props.logout}>Log out</button></div>
                     : <NavLink to={"/login"}>Login</NavLink>}
             </div>
         </header>
