@@ -13,28 +13,46 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <ul>
                 <li className={styles.item}>
-                    <img alt={'icon'} className={styles.icon} src={userNavbar} />
-                    <NavLink to="/profile" activeClassName={styles.activeLink}>Profile</NavLink>
+                    {/*<img alt={'icon'} className={styles.icon} src={userNavbar} />*/}
+                    <NavLink to="/profile" activeClassName={styles.activeLink}>
+                        <img alt={'icon'} className={styles.icon} src={userNavbar} />
+                            <span>Profile</span>
+                    </NavLink>
                 </li>
                 <li className={styles.item}>
-                    <img alt={'icon'} className={styles.icon} src={messagesNavbar} />
-                    <NavLink to="/dialogs" activeClassName={styles.activeLink}>Messages</NavLink>
+                    {/*<img alt={'icon'} className={styles.icon} src={messagesNavbar} />*/}
+                    <NavLink to="/dialogs" activeClassName={styles.activeLink}>
+                        <img alt={'icon'} className={styles.icon} src={messagesNavbar} />
+                        <span>Messages</span>
+                    </NavLink>
                 </li>
                 <li className={styles.item}>
-                    <img alt={'icon'} className={styles.icon} src={usersNavbar} />
-                    <NavLink to="/users" activeClassName={styles.activeLink}>Users</NavLink>
+                    {/*<img alt={'icon'} className={styles.icon} src={usersNavbar} />*/}
+                    <NavLink to="/users" activeClassName={styles.activeLink}>
+                        <img alt={'icon'} className={styles.icon} src={usersNavbar} />
+                        <span>Users</span>
+                    </NavLink>
                 </li>
                 <li className={styles.item}>
-                    <img alt={'icon'} className={styles.icon} src={newsNavbar} />
-                    <NavLink to="/news" activeClassName={styles.activeLink}>News</NavLink>
+                    {/*<img alt={'icon'} className={styles.icon} src={newsNavbar} />*/}
+                    <NavLink to="/news" activeClassName={styles.activeLink}>
+                        <img alt={'icon'} className={styles.icon} src={newsNavbar} />
+                        <span>News</span>
+                    </NavLink>
                 </li>
                 <li className={styles.item}>
-                    <img alt={'icon'} className={styles.icon} src={musicNavbar} />
-                    <NavLink to="/music" activeClassName={styles.activeLink}>Music</NavLink>
+                    {/*<img alt={'icon'} className={styles.icon} src={musicNavbar} />*/}
+                    <NavLink to="/music" activeClassName={styles.activeLink}>
+                        <img alt={'icon'} className={styles.icon} src={musicNavbar} />
+                        <span>Music</span>
+                    </NavLink>
                 </li>
                 <li className={styles.item}>
-                    <img alt={'icon'} className={styles.icon} src={settingsNavbar} />
-                    <NavLink to="/settings" activeClassName={styles.activeLink}>Settings</NavLink>
+                    {/*<img alt={'icon'} className={styles.icon} src={settingsNavbar} />*/}
+                    <NavLink to="/settings" activeClassName={styles.activeLink}>
+                        <img alt={'icon'} className={styles.icon} src={settingsNavbar} />
+                        <span>Settings</span>
+                    </NavLink>
                 </li>
             </ul>
         </nav>
