@@ -19,6 +19,11 @@
     font-weight: 600;
 }
 
+.logoColor {
+    color: #e78753;
+    padding: 0;
+}
+
 .loginBlock  {
     color: #4091cc;
     font-weight: 500;
@@ -36,4 +41,5 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }

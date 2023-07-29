@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Header.module.css'
 import {NavLink} from "react-router-dom";
 import {AuthType} from "../../redux/auth-reducer";
-import socialNetwork from "./../../assets/images/logo-icon.png";
+import socialNetwork from "./../../assets/images/hedgehog.png";
 
 type HeaderPropsType = {
     auth: AuthType
@@ -16,7 +16,7 @@ const Header = (props: HeaderPropsType) => {
                 <img
                 src={socialNetwork}
                 alt={""}/>
-                SocialV
+                Hedge<span className={styles.logoColor}>Hog</span>
             </div>
             <div className={styles.loginBlock}>
                 {props.auth.isAuth
