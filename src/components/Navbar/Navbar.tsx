@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
-import userNavbar from "./../../assets/images/user-navbar.png";
-import usersNavbar from "./../../assets/images/users-navbar.png";
-import messagesNavbar from "./../../assets/images/messages-navbar.png";
-import newsNavbar from "./../../assets/images/news-navbar.png";
-import settingsNavbar from "./../../assets/images/settings-navbar.png";
-import musicNavbar from "./../../assets/images/music-navbar.png";
+import userNavbar from "./../../assets/images/profile.png";
+import usersNavbar from "./../../assets/images/users.png";
+import messagesNavbar from "./../../assets/images/messages.png";
+import newsNavbar from "./../../assets/images/news.png";
+import settingsNavbar from "./../../assets/images/settings.png";
+import musicNavbar from "./../../assets/images/music.png";
 
 const Navbar = () => {
     return (
