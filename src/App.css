@@ -8,12 +8,11 @@
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
     grid-gap: 20px;
-    background-color: #eef8ff;
+    background-color: #f8f9fa;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: #fff;
-    border-radius: 10px;
 }
 
