@@ -1,0 +1,41 @@
+.profileDataInfo {
+    color: #343a40;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 10px;
+}
+
+.editBtnWrapper {
+    align-self: flex-end;
+}
+
+.editBtn {
+    background-color: #73c4ff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    cursor: pointer;
+}
+
+.myName {
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.socialIcon {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.contactsWrapper {
+    display: none;
+}
