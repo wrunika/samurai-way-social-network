@@ -1,8 +1,46 @@
-.item img {
+.postAvatar img {
     width: 70px;
     border-radius: 50%;
 }
 
 .item {
-    color: midnightblue;
+    color: #777d74;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.postBody {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border-bottom: 1px solid #73c4ff;
+    margin-bottom: 10px;
+}
+
+.message {
+    align-self: center;
+}
+
+.postAvatar {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.name {
+    text-transform: capitalize;
+    color: #73c4ff;
+    font-weight: 600;
+}
+
+.likeIcon {
+    width: 25px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.likeIcon:hover {
+    width: 26px;
 }

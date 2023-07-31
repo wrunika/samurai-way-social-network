@@ -7,7 +7,7 @@ import {AddPostReduxForm, NewPostType} from "./AddPostForm";
 
 const MyPosts = React.memo((props: MyPostsPropsType) => {
 
-    let postsElements = props.profilePage.postsData.map((p, index) => <Post key={index} message={p.message} likesCount={p.likesCount}/>)
+    let postsElements = props.profilePage.postsData.map((p, index) => <Post key={index} name={props.profilePage.profile.fullName} photo={props.profilePage.profile.photos.large} message={p.message} likesCount={p.likesCount}/>)
     //const newPostElement = React.createRef<HTMLTextAreaElement>();
 
     const addPost = (post: NewPostType) => {
@@ -16,11 +16,11 @@ const MyPosts = React.memo((props: MyPostsPropsType) => {
 
     return (
         <div className={styles.postsBlock}>
-            <h3>My posts</h3>
-            <div>
+            <div className={styles.form}>
+                <h3>Create post</h3>
                 <AddPostReduxForm onSubmit={addPost} />
             </div>
-            <div className={styles.posts}>
+            <div>
                 {postsElements}
             </div>
 

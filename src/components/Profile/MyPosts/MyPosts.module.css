@@ -1,7 +1,30 @@
 .postsBlock {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.posts {
-    margin-top: 10px;
+.form {
+    background-color: #fff;
+    padding: 0 10px 10px;
+    border-radius: 10px;
+}
+
+.textarea {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 90%;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.sendPostBtn {
+    background-color: #73c4ff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    cursor: pointer;
 }
