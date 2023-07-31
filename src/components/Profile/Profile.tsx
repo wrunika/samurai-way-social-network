@@ -2,7 +2,7 @@ import React from 'react';
 import ProfileInfo from "./MyPosts/ProfileInfo/ProfileInfo";
 import {RRMyPostsContainer} from "./MyPosts/MyPostsContainer";
 import {ProfileType} from "../../redux/profile-reducer";
-
+import styles from "./Profile.module.css";
 
 
 type ProfilePropsType = {
@@ -15,7 +15,7 @@ type ProfilePropsType = {
 }
 const Profile = (props: ProfilePropsType) => {
     return (
-        <div>
+        <div className={styles.profile}>
             <ProfileInfo
                 profile={props.profile}
                 isOwner={props.isOwner}
