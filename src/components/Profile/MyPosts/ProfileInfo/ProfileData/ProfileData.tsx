@@ -4,7 +4,7 @@ import facebookIcon from "../../../../../assets/images/facebook.png";
 import websiteIcon from "../../../../../assets/images/website.png";
 import vkIcon from "../../../../../assets/images/vk.png";
 import twitterIcon from "../../../../../assets/images/twitter.png";
-import instagramIcon from "../../../../../assets/images/instagram (1).png";
+import instagramIcon from "../../../../../assets/images/instagram.png";
 import youtubeIcon from "../../../../../assets/images/youtube.png";
 import githubIcon from "../../../../../assets/images/github.png";
 import mainLinkIcon from "../../../../../assets/images/link.png";
@@ -38,20 +38,17 @@ export const ProfileData = ({profile, isOwner, goToEditMode}: any) => { /// fix 
                 {profile.fullName}
             </div>
 
-            <div className={styles.info}>
-                {/*<div className={styles.myName}>
-                    {profile.fullName}
-                </div>*/}
-                <div>
+            <div className={styles.infoWrapper}>
+                <div className={styles.info}>
                     <div>
-                        <b>About me</b>: {profile.aboutMe || 'no description'}
+                        <span className={styles.infoTitle}>About me</span>: {profile.aboutMe || 'no description'}
                     </div>
                     <div>
-                        <b>Looking for a job</b>: {profile.lookingForAJob ? "yes" : "no"}
+                        <span className={styles.infoTitle}>Looking for a job</span>: {profile.lookingForAJob ? "yes" : "no"}
                     </div>
                     {profile.lookingForAJob ?
                         <div>
-                            <b>My professional skills</b>: {profile.lookingForAJobDescription}
+                            <span className={styles.infoTitle}>My professional skills</span>: {profile.lookingForAJobDescription}
                         </div> : <></>
                     }
                     <div>
@@ -73,9 +70,6 @@ export const ProfileData = ({profile, isOwner, goToEditMode}: any) => { /// fix 
                     <button className={styles.editBtn} onClick={goToEditMode}>Edit profile</button>
                 </div>}
             </div>
-            {/*{isOwner && <div className={styles.editBtnWrapper}>
-                <button className={styles.editBtn} onClick={goToEditMode}>Edit profile</button>
-            </div>}*/}
         </div>
     )
 }

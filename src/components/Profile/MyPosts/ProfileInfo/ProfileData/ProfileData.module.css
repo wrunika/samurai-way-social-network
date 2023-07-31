@@ -4,10 +4,20 @@
     border-radius: 10px;
 }
 
-.info {
+.infoWrapper {
     display: flex;
     justify-content: space-between;
     padding: 0 10px 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.infoTitle {
+    font-weight: 500;
 }
 
 .editBtnWrapper {
