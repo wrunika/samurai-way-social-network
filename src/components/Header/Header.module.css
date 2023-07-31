@@ -41,5 +41,6 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
+    width: 90px;
     cursor: pointer;
 }
