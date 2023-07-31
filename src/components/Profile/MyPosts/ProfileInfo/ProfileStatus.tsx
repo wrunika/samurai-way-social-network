@@ -1,4 +1,7 @@
 import React, {ChangeEvent} from 'react';
+import styles from "./ProfileInfo.module.css";
+import edit from "./../../../../assets/images/edit.png";
+
 
 type PropsType = {
     status: string
@@ -36,13 +39,15 @@ export class ProfileStatus extends React.Component<PropsType, any> {
 
     render() {
         return (
-            <div>
+            <div className={styles.statusBlock}>
                 {!this.state.editMode
-                    ? <div>
-                        <span onDoubleClick={this.activateEditMode }>{this.props.status || '-----------'}</span>
+                    ? <div className={styles.statusWrapper}>
+                        <span className={styles.statusTitle}>What`s on your mind: </span>
+                        <span className={styles.statusBody} onDoubleClick={this.activateEditMode }>{this.props.status || <img src={edit} className={styles.editStatus} alt={'edit'} />}</span>
                     </div>
                     : <div>
-                        <input onChange={this.onStatusChange} autoFocus onBlur={this.deactivateEditMode} value={this.state.status}/>
+                        <span className={styles.statusTitle}>What`s on your mind: </span>
+                        <input className={styles.statusInput} onChange={this.onStatusChange} autoFocus onBlur={this.deactivateEditMode} value={this.state.status}/>
                     </div>
                 }
             </div>
