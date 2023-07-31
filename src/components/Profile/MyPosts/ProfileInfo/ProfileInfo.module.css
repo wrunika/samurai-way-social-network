@@ -1,6 +1,30 @@
 .avatar {
     max-width: 200px;
-    padding: 10px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+.avatarWrapper::before {
+    content: "";
+    position: absolute;
+    width: 50.2%;
+    height: 70%;
+    background-color: #e78753;
+    left: -1px;
+    top: -1px;
+    border-radius: 10px 0 0 10px;
+    opacity: 0.7;
+}
+.avatarWrapper::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 50%;
+    height: 70%;
+    background-color: #73c4ff;
+    border-radius: 0 10px 10px 0;
+    opacity: 0.7;
 }
 
 .contact {
@@ -8,5 +32,90 @@
 }
 
 .profileData {
-    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f8f9fa;
+}
+
+.avatarAndInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.statusBlock {
+    background-color: #fff;
+    color: #777d74;
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #73c4ff;
+}
+
+.statusWrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.statusTitle {
+    font-weight: 700;
+    color: #73c4ff;
+}
+
+.statusBody {
+    color: #4091cc;
+}
+
+.editStatus {
+    width: 25px;
+}
+
+.avatarWrapper {
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 20px;
+    position: relative;
+}
+
+.addPhotoBtn {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #73c4ff;
+    color: #fff;
+    border-radius: 50%;
+    top: -50px;
+    left: 40%;
+    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.inputWrapper {
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.inputFile {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.inputIcon {
+    width: 30px;
 }
