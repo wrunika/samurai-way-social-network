@@ -1,19 +1,81 @@
+.users {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.userWrapper {
+    width: 44%;
+    position: relative;
+}
+.user::before {
+    content: "";
+    position: absolute;
+    width: 50.5%;
+    height: 50%;
+    background-color: #e78753;
+    left: -1px;
+    top: -1px;
+    border-radius: 10px 0 0 10px;
+    opacity: 0.5;
+}
+.user::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    width: 50%;
+    height: 50%;
+    background-color: #73c4ff;
+    border-radius: 0 10px 10px 0;
+    opacity: 0.5;
+}
+
 .user {
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    padding: 50px 10px 10px;
+    /*width: 44%;*/
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 .avatar {
     display: block;
     width: 150px;
     margin-bottom: 10px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
 }
 .followBtn {
-    display: block;
-    margin-bottom: 10px;
+    background-color: #73c4ff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    cursor: pointer;
 }
 
 .userInfo {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-end;
+    color: #73c4ff;
+}
+
+.userInfo h4 {
+    text-transform: capitalize;
+    margin: 0;
+}
+.userInfo p {
+    margin: 0;
+    color: #777d74;
+}
+
+.statusIcon {
+    width: 40px;
 }
