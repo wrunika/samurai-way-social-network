@@ -25,12 +25,11 @@ export const ProfileData = ({profile, isOwner, goToEditMode}: any) => { /// fix 
 //const ProfileData = ({profile, isOwner}: any) => { /// fix any
 
     const contactsIcons = [facebookIcon, websiteIcon, vkIcon, twitterIcon, instagramIcon, youtubeIcon, githubIcon, mainLinkIcon];
-    //const arrayOfContacts1 = Object.entries(profile.contacts).map(([key, value]) => ({ [key]: value }));
+
     const arrayOfContacts: any[] = Object.values(profile.contacts).map((value) => ({ 'link': value }));
     for (let i = 0; i < contactsIcons.length; i++) {
         arrayOfContacts[i].icon = contactsIcons[i];
     }
-    console.log(arrayOfContacts)
 
     return (
         <div className={styles.profileDataInfo}>

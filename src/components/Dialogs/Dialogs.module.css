@@ -11,8 +11,29 @@
     color: brown;
 }
 
+.dialog {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background: #fff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    height: 60px;
+}
+
 .dialog a {
     text-decoration: none;
+}
+
+.dialog img {
+    width:40px;
+    border-radius: 50%;
+    padding-right: 10px;
+}
+
+.name {
+    color: #4091cc;
+    vertical-align: super;
 }
 
 .messages {
@@ -20,5 +41,20 @@
 }
 
 .message {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background: #fff;
+    color: #777d74;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    height: 60px;
+}
 
+.textarea {
+    resize: none;
+    width: 40%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
 }

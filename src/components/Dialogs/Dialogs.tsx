@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
@@ -20,14 +20,16 @@ const Dialogs = (props: DialogsPropsType) => {
     //if (!props.isAuth) return <Redirect to={"login"} />;
 
     return (
-        <div className={styles.dialogs}>
-            <div className={styles.dialogsItems}>
-                {dialogsElement}
+        <div >
+            <div className={styles.dialogs}>
+                <div className={styles.dialogsItems}>
+                    {dialogsElement}
+                </div>
+                <div className={styles.messages}>
+                    <div>{messagesElement}</div>
+                </div>
             </div>
-            <div className={styles.messages}>
-                <div>{messagesElement}</div>
-            </div>
-            <div className={styles.messages}>
+            <div className={styles.sendMessage}>
                 <SendMessageReduxForm onSubmit={sendMessage}/>
             </div>
         </div>
