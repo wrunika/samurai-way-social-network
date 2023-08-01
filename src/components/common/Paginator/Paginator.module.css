@@ -1,10 +1,43 @@
 .paginator {
-    margin: 10px;
+    margin-bottom: 20px;
 }
 
 .page {
     cursor: pointer;
+    color: #777d74;
+    padding: 5px;
+    background-color: #fff;
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
 }
+
+.page:hover {
+    color: #306d99;
+    font-size: 17px;
+}
+
 .selectedPage {
-    font-weight: bold;
+    color: #4091cc;
+    background-color: #eef8ff;
+    border: 1px solid #4091cc;
+    border-radius: 5px;
+}
+
+.selectedPage:hover {
+    font-size: 16px;
+}
+
+.nextBtn {
+    background-color: #73c4ff;
+    color: #fff;
+    padding: 10px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 90px;
+    cursor: pointer;
 }

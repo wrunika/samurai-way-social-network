@@ -32,7 +32,7 @@ export const Paginator = ({portionSize = 10, ...props}: PaginatorPropsType) => {
               return <span key={index} onClick={()=>props.onPageChanged(p)} className={pageStyle}>{p + ' '}</span>
           })}
           {portionCount > portionNumber &&
-              <button onClick={() => setPortionNumber(portionNumber + 1)}>NEXT</button>}
+              <button className={s.nextBtn} onClick={() => setPortionNumber(portionNumber + 1)}>NEXT</button>}
       </div>
   )
 }
